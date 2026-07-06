@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Hikayem Takı | Senin Takın, Senin Hikayen{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-text">
+            <span class="eyebrow">Yeni koleksiyon yayında</span>
+
+            <h1>Senin takın,<br>senin hikayen.</h1>
+
+            <p>
+                Zarif, sade ve anlamlı takılarla günlük stiline özel bir dokunuş kat.
+                Hikayem Takı koleksiyonunu keşfet.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#" class="btn primary">Ürünleri İncele</a>
+                <a href="#" class="btn secondary">Instagram'a Git</a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="logo-card">
+                <img src="{% static 'img/logo/hikayem-logo.png' %}" alt="Hikayem Takı">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container feature-grid">
+        <div class="feature-card">
+            <h3>Zarif Seçimler</h3>
+            <p>Günlük kullanıma uygun sade ve şık parçalar.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Hızlı Sipariş</h3>
+            <p>Shopier üzerinden güvenli ve kolay ödeme.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Özenli Paketleme</h3>
+            <p>Her sipariş Hikayem Takı dokunuşuyla hazırlanır.</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
