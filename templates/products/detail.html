@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} | Hikayem Takı{% endblock %}
+
+{% block content %}
+
+<section class="product-detail-section">
+    <div class="product-detail-container">
+
+        <div class="product-detail-media">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% else %}
+                <div class="product-detail-placeholder">
+                    <span>Hikayem Takı</span>
+                    <small>Görsel yakında eklenecek</small>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="product-detail-info">
+            <div class="product-breadcrumb">
+                <a href="{% url 'home' %}">Ana Sayfa</a>
+                <span>/</span>
+                <span>{{ product.name }}</span>
+            </div>
+
+            {% if product.category %}
+                <span class="product-detail-category">{{ product.category.name }}</span>
+            {% endif %}
+
+            <h1>{{ product.name }}</h1>
+
+            <div class="product-detail-rating">
+                <span>★★★★★</span>
+                <small>4.9</small>
+            </div>
+
+            <p class="product-detail-price">₺{{ product.price }}</p>
+
+            {% if product.stock > 0 %}
+                <div class="stock-badge in-stock">Stokta var · {{ product.stock }} adet</div>
+            {% else %}
+                <div class="stock-badge out-stock">Stokta yok</div>
+            {% endif %}
+
+            <div class="product-detail-description">
+                {% if product.description %}
+                    <p>{{ product.description }}</p>
+                {% else %}
+                    <p>
+                        Zarif detaylarıyla günlük şıklığını tamamlayan, Hikayem Takı koleksiyonundan özel bir parça.
+                    </p>
+                {% endif %}
+            </div>
+
+            <div class="product-detail-actions">
+                <a href="#" class="btn-primary">Sepete Ekle</a>
+                <a href="https://www.instagram.com/hikayemtaki/" class="btn-secondary" target="_blank" rel="noopener">
+                    Instagram’dan Sor
+                </a>
+            </div>
+
+            <div class="product-trust-box">
+                <div>
+                    <strong>316L Çelik</strong>
+                    <span>Dayanıklı kullanım</span>
+                </div>
+                <div>
+                    <strong>Özenli Paketleme</strong>
+                    <span>Sevgiyle hazırlanır</span>
+                </div>
+                <div>
+                    <strong>Hızlı Hazırlık</strong>
+                    <span>Kısa sürede kargoya hazır</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="products-section">
+    <div class="section-header">
+        <span>Senin İçin Seçtik</span>
+        <h2>Bunları da Beğenebilirsin</h2>
+        <p>Aynı koleksiyondan öne çıkan diğer ürünler.</p>
+    </div>
+
+    <div class="home-product-grid">
+        {% for item in related_products %}
+            <article class="home-product-card">
+                <div class="home-product-image">
+                    <span class="product-badge">Önerilen</span>
+
+                    {% if item.image %}
+                        <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                    {% else %}
+                        <div class="product-image-placeholder">
+                            <span>Hikayem Takı</span>
+                            <small>Görsel yakında</small>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="home-product-info">
+                    {% if item.category %}
+                        <span class="product-category">{{ item.category.name }}</span>
+                    {% endif %}
+
+                    <h3>{{ item.name }}</h3>
+
+                    <div class="product-card-footer">
+                        <p>₺{{ item.price }}</p>
+
+                        <a href="{% url 'products:detail' item.slug %}" class="product-detail-link">
+                            İncele
+                        </a>
+                    </div>
+                </div>
+            </article>
+        {% empty %}
+            <div class="empty-products">
+                <p>Bu kategori için başka ürün bulunmuyor.</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

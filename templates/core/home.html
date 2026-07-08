@@ -5,48 +5,150 @@
 
 {% block content %}
 
-<section class="hero">
-    <div class="container hero-grid">
-        <div class="hero-text">
-            <span class="eyebrow">Yeni koleksiyon yayında</span>
+<section class="hero-v3">
+    <div class="hero-v3-content">
+        <span class="hero-badge">Yeni Koleksiyon</span>
 
-            <h1>Senin takın,<br>senin hikayen.</h1>
+        <h1>
+            Her Takının<br>
+            Bir <span>Hikayesi</span> Var.
+        </h1>
 
-            <p>
-                Zarif, sade ve anlamlı takılarla günlük stiline özel bir dokunuş kat.
-                Hikayem Takı koleksiyonunu keşfet.
-            </p>
-
-            <div class="hero-actions">
-                <a href="#" class="btn primary">Ürünleri İncele</a>
-                <a href="#" class="btn secondary">Instagram'a Git</a>
-            </div>
+        <div class="hero-line">
+            <span></span>
+            <small>♥</small>
         </div>
 
-        <div class="hero-visual">
-            <div class="logo-card">
-                <img src="{% static 'img/logo/hikayem-logo.png' %}" alt="Hikayem Takı">
-            </div>
+        <p>
+            Zarif detaylarla hazırlanmış, günlük şıklığını tamamlayan çelik takılar.
+            Her parça senin tarzını ve hikâyeni yansıtmak için özenle seçildi.
+        </p>
+
+        <div class="hero-actions">
+            <a href="#products" class="btn-primary">Koleksiyonu Keşfet →</a>
+            <a href="https://www.instagram.com/hikayemtaki/" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+                Instagram’da Gör
+            </a>
+        </div>
+    </div>
+
+    <div class="hero-v3-media">
+        <img src="{% static 'images/hero-product.png' %}" alt="Hikayem Takı Yeni Koleksiyon">
+    </div>
+</section>
+
+<section class="feature-strip">
+    <div class="feature-item">
+        <div class="feature-icon">♡</div>
+        <div>
+            <h3>316L Çelik Kalitesi</h3>
+            <p>Kararma ve paslanmaya karşı dayanıklı.</p>
+        </div>
+    </div>
+
+    <div class="feature-item">
+        <div class="feature-icon">◌</div>
+        <div>
+            <h3>Suya Dayanıklı</h3>
+            <p>Günlük kullanımda rahatlık sağlar.</p>
+        </div>
+    </div>
+
+    <div class="feature-item">
+        <div class="feature-icon">♢</div>
+        <div>
+            <h3>Özenli Paketleme</h3>
+            <p>Her sipariş sevgiyle hazırlanır.</p>
+        </div>
+    </div>
+
+    <div class="feature-item">
+        <div class="feature-icon">↗</div>
+        <div>
+            <h3>Hızlı Kargo</h3>
+            <p>Siparişlerin kısa sürede hazırlanır.</p>
         </div>
     </div>
 </section>
 
-<section class="features">
-    <div class="container feature-grid">
-        <div class="feature-card">
-            <h3>Zarif Seçimler</h3>
-            <p>Günlük kullanıma uygun sade ve şık parçalar.</p>
-        </div>
+<section id="products" class="products-section">
+    <div class="section-header">
+        <span>Öne Çıkanlar</span>
+        <h2>Yeni gelen takılar</h2>
+        <p>Hikayem Takı’nın en sevilen parçalarını keşfet.</p>
+    </div>
 
-        <div class="feature-card">
-            <h3>Hızlı Sipariş</h3>
-            <p>Shopier üzerinden güvenli ve kolay ödeme.</p>
-        </div>
+    <div class="home-product-grid">
+        {% for product in featured_products %}
+            <article class="home-product-card">
+                <div class="home-product-image">
+                    <span class="product-badge">Yeni</span>
+                    <button class="favorite-btn" type="button" aria-label="Favorilere ekle">♡</button>
 
-        <div class="feature-card">
-            <h3>Özenli Paketleme</h3>
-            <p>Her sipariş Hikayem Takı dokunuşuyla hazırlanır.</p>
-        </div>
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% else %}
+                        <div class="product-image-placeholder">
+                            <span>Hikayem Takı</span>
+                            <small>Görsel yakında</small>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="home-product-info">
+                    {% if product.category %}
+                        <span class="product-category">{{ product.category.name }}</span>
+                    {% endif %}
+
+                    <h3>{{ product.name }}</h3>
+
+                    <div class="product-rating">
+                        <span>★★★★★</span>
+                        <small>4.9</small>
+                    </div>
+
+                    <div class="product-card-footer">
+                        <p>₺{{ product.price }}</p>
+                        <a href="{% url 'products:detail' product.slug %}" class="product-detail-link">
+                            İncele
+                        </a>
+                    </div>
+                </div>
+            </article>
+        {% empty %}
+            <div class="empty-products">
+                <h3>Henüz ürün eklenmedi.</h3>
+                <p>Admin panelinden ürün eklediğinde burada görünecek.</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="collections" class="collection-section">
+    <div class="collection-card">Kolye Koleksiyonu</div>
+    <div class="collection-card">Küpe Koleksiyonu</div>
+    <div class="collection-card">Bileklik Koleksiyonu</div>
+</section>
+
+<section id="story" class="story-section">
+    <div class="story-image"></div>
+
+    <div class="story-content">
+        <span>Hikayemiz</span>
+        <h2>Senin takın, senin hikayen.</h2>
+        <p>
+            Hikayem Takı, zarafeti ve sadeliği bir araya getirerek her kadının
+            kendini özel hissetmesini amaçlar.
+        </p>
+        <a href="#" class="btn-primary">Hikayemizi Oku →</a>
+    </div>
+</section>
+
+<section id="instagram" class="instagram-section">
+    <div class="section-header">
+        <span>Instagram</span>
+        <h2>Bizi Instagram’da takip edin</h2>
+        <p>Yeni ürünler ve kampanyalardan haberdar olun.</p>
     </div>
 </section>
 
