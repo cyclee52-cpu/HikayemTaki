@@ -26,9 +26,7 @@
 
         <div class="hero-actions">
             <a href="#products" class="btn-primary">Koleksiyonu Keşfet →</a>
-            <a href="https://www.instagram.com/hikayemtaki/" class="btn-secondary" target="_blank" rel="noopener noreferrer">
-                Instagram’da Gör
-            </a>
+            <a href="{% url 'products:list' %}" class="btn-secondary">Tüm Ürünleri Gör</a>
         </div>
     </div>
 
@@ -89,7 +87,7 @@
                 <span class="collection-badge">Yeni Sezon</span>
                 <h3>Yeni Gelenler</h3>
                 <p>Sezona yeni eklenen modern, zarif ve günlük kullanıma uygun parçalar.</p>
-                <a href="#products" class="collection-link">
+                <a href="{{ collection_urls.new }}" class="collection-link">
                     Koleksiyonu Keşfet
                     <span>→</span>
                 </a>
@@ -103,7 +101,7 @@
                 <span class="collection-badge">Favoriler</span>
                 <h3>Küpeler</h3>
                 <p>Işıltılı ama sade tamamlayıcılar.</p>
-                <a href="#products" class="collection-link">
+                <a href="{{ collection_urls.earrings }}" class="collection-link">
                     Koleksiyonu Keşfet
                     <span>→</span>
                 </a>
@@ -117,7 +115,7 @@
                 <span class="collection-badge">Zarif Seçim</span>
                 <h3>Kolyeler</h3>
                 <p>Minimal çizgiler ve güçlü detaylar.</p>
-                <a href="#products" class="collection-link">
+                <a href="{{ collection_urls.necklaces }}" class="collection-link">
                     Koleksiyonu Keşfet
                     <span>→</span>
                 </a>
@@ -131,7 +129,7 @@
                 <span class="collection-badge">Premium</span>
                 <h3>Yüzükler</h3>
                 <p>Günlük stile zarif bir imza.</p>
-                <a href="#products" class="collection-link">
+                <a href="{{ collection_urls.rings }}" class="collection-link">
                     Koleksiyonu Keşfet
                     <span>→</span>
                 </a>
@@ -139,6 +137,7 @@
         </article>
     </div>
 </section>
+
 <section id="products" class="products-section">
     <div class="section-header">
         <span>Öne Çıkanlar</span>
@@ -146,9 +145,14 @@
         <p>Hikayem Takı’nın en sevilen parçalarını keşfet.</p>
     </div>
 
-    <div class="home-product-grid">
+    <div
+        class="home-product-grid"
+        id="homeProductGrid"
+        data-visible-count="{{ home_product_visible_count }}"
+        data-rotation-interval="{{ product_rotation_interval }}"
+    >
         {% for product in featured_products %}
-            <article class="home-product-card">
+            <article class="home-product-card" data-product-card>
                 <div class="home-product-image">
                     <span class="product-badge">Yeni</span>
                     <button class="favorite-btn" type="button" aria-label="Favorilere ekle">♡</button>
@@ -190,6 +194,12 @@
             </div>
         {% endfor %}
     </div>
+
+    <div class="products-section-action">
+        <a href="{% url 'products:list' %}" class="btn-primary">
+            Tüm Ürünleri Gör →
+        </a>
+    </div>
 </section>
 
 <section id="story" class="story-section">
@@ -213,5 +223,41 @@
         <p>Yeni ürünler ve kampanyalardan haberdar olun.</p>
     </div>
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const grid = document.getElementById("homeProductGrid");
+
+        if (!grid) {
+            return;
+        }
+
+        const cards = Array.from(grid.querySelectorAll("[data-product-card]"));
+        const visibleCount = Number(grid.dataset.visibleCount) || 8;
+        const rotationInterval = Number(grid.dataset.rotationInterval) || 20000;
+
+        if (cards.length <= visibleCount) {
+            return;
+        }
+
+        let startIndex = 0;
+
+        function showProductGroup() {
+            cards.forEach(function (card) {
+                card.style.display = "none";
+            });
+
+            for (let i = 0; i < visibleCount; i++) {
+                const cardIndex = (startIndex + i) % cards.length;
+                cards[cardIndex].style.display = "";
+            }
+
+            startIndex = (startIndex + visibleCount) % cards.length;
+        }
+
+        showProductGroup();
+        setInterval(showProductGroup, rotationInterval);
+    });
+</script>
 
 {% endblock %}

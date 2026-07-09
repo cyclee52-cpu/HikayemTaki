@@ -5,27 +5,33 @@
 
         <a href="{% url 'home' %}" class="brand">
             <img src="{% static 'img/logo/hikayem-logo.png' %}" alt="Hikayem Takı Logo">
-            <span>Hikayem Takı</span>
+
+            <div class="brand-text">
+                <span>Hikayem Takı</span>
+                <small>Senin Takın, Senin Hikayen</small>
+            </div>
         </a>
 
         <div class="nav-links">
 
             <a href="/#products">Yeni Gelenler</a>
 
-            <a href="/#collections">Koleksiyon</a>
+            <a href="/#collections">Koleksiyonlar</a>
+
+            <a href="{% url 'products:list' %}">
+                Tüm Ürünler
+            </a>
 
             <a href="/#story">Hikayemiz</a>
 
-            
             <a
-    href="https://www.instagram.com/hikayemtaki/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="nav-instagram">
-    Instagram
-</a>
-
-            
+                href="https://www.instagram.com/hikayemtaki/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nav-instagram"
+            >
+                Instagram
+            </a>
 
         </div>
 

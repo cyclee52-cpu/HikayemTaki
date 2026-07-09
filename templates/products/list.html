@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Tüm Ürünler | Hikayem Takı{% endblock %}
+
+{% block content %}
+
+<section class="shop-hero">
+    <div class="shop-hero-content">
+        <span>✦ Hikayem Takı Koleksiyonu</span>
+        <h1>Tüm ürünler</h1>
+        <p>Hikayem Takı’nın tüm zarif parçalarını kategori kategori keşfet.</p>
+
+        <div class="shop-hero-line">
+            <span></span>
+            <small>♥</small>
+            <span></span>
+        </div>
+    </div>
+</section>
+
+<section class="shop-page">
+    <div class="category-filter-bar">
+        <a
+            href="{% url 'products:list' %}"
+            class="category-filter-link {% if not selected_category %}active{% endif %}"
+        >
+            <span>▦</span>
+            Tüm Ürünler
+        </a>
+
+        {% for category in categories %}
+            <a
+                href="{% url 'products:list' %}?category={{ category.slug }}"
+                class="category-filter-link {% if selected_category and selected_category.slug == category.slug %}active{% endif %}"
+            >
+                {{ category.name }}
+            </a>
+        {% endfor %}
+    </div>
+
+    {% for group in grouped_categories %}
+        <section class="shop-category-block">
+            <div class="shop-category-header">
+                <div class="shop-category-title">
+                    <h2>{{ group.category.name }}</h2>
+                    <span></span>
+                </div>
+
+                <a href="{% url 'products:list' %}?category={{ group.category.slug }}">
+                    Tümünü Gör →
+                </a>
+            </div>
+
+            <div class="home-product-grid">
+                {% for product in group.products %}
+                    <article class="home-product-card">
+                        <div class="home-product-image">
+                            <span class="product-badge">Yeni</span>
+                            <button class="favorite-btn" type="button" aria-label="Favorilere ekle">♡</button>
+
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                            {% else %}
+                                <div class="product-image-placeholder">
+                                    <span>Hikayem Takı</span>
+                                    <small>Görsel yakında</small>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="home-product-info">
+                            <span class="product-category">{{ group.category.name }}</span>
+
+                            <h3>{{ product.name }}</h3>
+
+                            <div class="product-rating">
+                                <span>★★★★★</span>
+                                <small>4.9</small>
+                            </div>
+
+                            <div class="product-card-footer">
+                                <p>₺{{ product.price }}</p>
+
+                                <a href="{% url 'products:detail' product.slug %}" class="product-detail-link">
+                                    İncele
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </section>
+    {% empty %}
+        <div class="empty-products">
+            <h3>Henüz ürün eklenmedi.</h3>
+            <p>Admin panelinden ürün eklediğinde burada görünecek.</p>
+        </div>
+    {% endfor %}
+</section>
+
+{% endblock %}

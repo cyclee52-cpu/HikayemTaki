@@ -2,32 +2,54 @@
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(252, 250, 248, 0.94);
-    border-bottom: 1px solid #eee2d8;
-    backdrop-filter: blur(12px);
+    background: rgba(252, 250, 248, 0.96);
+    border-bottom: 1px solid rgba(238, 226, 216, 0.9);
+    backdrop-filter: blur(14px);
 }
 
 .nav-content {
-    min-height: 76px;
+    min-height: 88px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .brand {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     color: #1f1f1f;
-    font-size: 20px;
-    font-weight: 800;
+    text-decoration: none;
 }
 
 .brand img {
-    width: 46px;
-    height: 46px;
+    width: 62px;
+    height: 62px;
     object-fit: contain;
     border-radius: 50%;
+    box-shadow: 0 10px 26px rgba(46, 42, 40, 0.08);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.brand-text span {
+    color: #1f1f1f;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+}
+
+.brand-text small {
+    color: #b88b2d;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
 .nav-links {
@@ -39,11 +61,69 @@
 .nav-links a {
     color: #6e625c;
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 800;
+    text-decoration: none;
     transition: color 0.25s ease;
 }
 
 .nav-links a:hover,
-.nav-instagram {
-    color: #c5a46d;
+.nav-links .nav-instagram {
+    color: #b88b2d;
+}
+
+@media (max-width: 820px) {
+    .nav-content {
+        min-height: auto;
+        padding: 14px 0;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .brand img {
+        width: 58px;
+        height: 58px;
+    }
+
+    .brand-text {
+        align-items: flex-start;
+    }
+
+    .brand-text span {
+        font-size: 21px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px 22px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand {
+        gap: 12px;
+    }
+
+    .brand img {
+        width: 54px;
+        height: 54px;
+    }
+
+    .brand-text span {
+        font-size: 20px;
+    }
+
+    .brand-text small {
+        font-size: 10px;
+        letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+        gap: 12px 16px;
+    }
 }
