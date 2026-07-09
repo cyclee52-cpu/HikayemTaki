@@ -116,6 +116,27 @@
                 </a>
             </div>
 
+            <div class="product-utility-actions" aria-label="Ürün yardımcı işlemleri">
+                <button
+                    type="button"
+                    class="product-utility-btn"
+                    id="favoriteProductButton"
+                    aria-pressed="false"
+                >
+                    <span class="utility-icon">♡</span>
+                    <span class="utility-text">Favorilere Ekle</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="product-utility-btn"
+                    id="shareProductButton"
+                >
+                    <span class="utility-icon">↗</span>
+                    <span class="utility-text">Ürünü Paylaş</span>
+                </button>
+            </div>
+
             <div class="product-trust-box">
                 <div>
                     <span class="trust-icon">✦</span>
@@ -208,6 +229,8 @@
     {% endif %}
 </div>
 
+<script src="{% static 'js/toast.js' %}"></script>
 <script src="{% static 'js/product-detail.js' %}"></script>
+<script src="{% static 'js/product-utilities.js' %}"></script>
 
 {% endblock %}

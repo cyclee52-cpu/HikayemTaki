@@ -4,8 +4,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const mainImage = document.getElementById("mainProductImage");
     const thumbs = Array.from(document.querySelectorAll(".product-gallery-thumb"));
 
-    let activeIndex = Math.max(0, thumbs.findIndex((thumb) => thumb.classList.contains("active")));
+    let activeIndex = Math.max(0, thumbs.findIndex(function (thumb) {
+        return thumb.classList.contains("active");
+    }));
     let touchStartX = 0;
+
+    function setImageLoadedState() {
+        if (!galleryMain || !mainImage) {
+            return;
+        }
+
+        galleryMain.classList.add("is-loading");
+
+        if (mainImage.complete) {
+            galleryMain.classList.remove("is-loading");
+        }
+
+        mainImage.addEventListener("load", function () {
+            galleryMain.classList.remove("is-loading");
+        });
+    }
 
     function changeImage(index) {
         const thumb = thumbs[index];
@@ -23,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         activeIndex = index;
         mainImage.classList.add("is-changing");
+        galleryMain.classList.add("is-loading");
 
         window.setTimeout(function () {
             mainImage.src = imageUrl;
@@ -52,6 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     if (galleryMain && mainImage) {
+        setImageLoadedState();
+
         galleryMain.addEventListener("mousemove", function (event) {
             const rect = galleryMain.getBoundingClientRect();
             const x = ((event.clientX - rect.left) / rect.width) * 100;
@@ -135,6 +156,15 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem(storageKey, JSON.stringify(updatedProducts));
     }
 
+    function escapeHtml(value) {
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
     function renderRecentProducts() {
         if (!recentSection || !recentGrid || !detailSection) {
             return;
@@ -152,8 +182,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         recentGrid.innerHTML = products.map(function (item) {
-            const imageHtml = item.image
-                ? `<img src="${item.image}" alt="${item.name}">`
+            const safeName = escapeHtml(item.name);
+            const safePrice = escapeHtml(item.price);
+            const safeUrl = escapeHtml(item.url);
+            const safeImage = escapeHtml(item.image || "");
+            const imageHtml = safeImage
+                ? `<img src="${safeImage}" alt="${safeName}">`
                 : `<div class="product-image-placeholder"><span>Hikayem Takı</span><small>Görsel yakında</small></div>`;
 
             return `
@@ -165,11 +199,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     <div class="home-product-info">
                         <span class="product-category">Hikayem Takı</span>
-                        <h3>${item.name}</h3>
+                        <h3>${safeName}</h3>
 
                         <div class="product-card-footer">
-                            <p>${item.price}</p>
-                            <a href="${item.url}" class="product-detail-link">İncele</a>
+                            <p>${safePrice}</p>
+                            <a href="${safeUrl}" class="product-detail-link">İncele</a>
                         </div>
                     </div>
                 </article>
