@@ -35,12 +35,19 @@ class Product(models.Model):
     )
     name = models.CharField(max_length=160, verbose_name="Ürün Adı")
     slug = models.SlugField(max_length=180, unique=True, blank=True, db_index=True)
-    description = models.TextField(blank=True, verbose_name="Açıklama")
+    description = models.TextField(blank=True, verbose_name="Ürün Açıklaması")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Fiyat")
-    image = models.ImageField(upload_to="products/", blank=True, null=True, verbose_name="Ürün Görseli")
     stock = models.PositiveIntegerField(default=0, verbose_name="Stok")
+    image = models.ImageField(upload_to="products/", blank=True, null=True, verbose_name="Görsel")
+
+    shopier_url = models.URLField(
+        max_length=500,
+        blank=True,
+        verbose_name="Shopier Ürün Linki",
+        help_text="Ürünün Shopier satış linkini buraya ekleyin."
+    )
+
     is_active = models.BooleanField(default=True, verbose_name="Aktif mi?")
-    is_featured = models.BooleanField(default=False, verbose_name="Öne Çıkan Ürün mü?")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Oluşturulma Tarihi")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Güncellenme Tarihi")
 

@@ -55,8 +55,17 @@
             </div>
 
             <div class="product-detail-actions">
-                <a href="#" class="btn-primary">Sepete Ekle</a>
-                <a href="https://www.instagram.com/hikayemtaki/" class="btn-secondary" target="_blank" rel="noopener">
+                {% if product.shopier_url %}
+                    <a href="{{ product.shopier_url }}" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                        Sepete Ekle
+                    </a>
+                {% else %}
+                    <a href="https://www.instagram.com/hikayemtaki/" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                        Satın Almak İçin Sor
+                    </a>
+                {% endif %}
+
+                <a href="https://www.instagram.com/hikayemtaki/" class="btn-secondary" target="_blank" rel="noopener noreferrer">
                     Instagram’dan Sor
                 </a>
             </div>
