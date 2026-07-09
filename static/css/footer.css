@@ -1,0 +1,21 @@
+.footer {
+    padding: 28px 0;
+    background: #2e2a28;
+    color: #fcfaf8;
+    text-align: center;
+}
+
+.footer p {
+    color: inherit;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer a {
+    color: #c5a46d;
+    transition: color 0.25s ease;
+}
+
+.footer a:hover {
+    color: #ffffff;
+}

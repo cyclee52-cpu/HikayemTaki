@@ -1,0 +1,49 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(252, 250, 248, 0.94);
+    border-bottom: 1px solid #eee2d8;
+    backdrop-filter: blur(12px);
+}
+
+.nav-content {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #1f1f1f;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.brand img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: #6e625c;
+    font-size: 15px;
+    font-weight: 700;
+    transition: color 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-instagram {
+    color: #c5a46d;
+}
