@@ -27,6 +27,7 @@
         linear-gradient(135deg, #f6eadb, #fff8ef);
     box-shadow: 0 30px 90px rgba(46, 42, 40, 0.11);
     cursor: zoom-in;
+    touch-action: pan-y;
 }
 
 .product-gallery-main img {
@@ -37,9 +38,9 @@
     transform: scale(1);
     transition:
         transform .55s ease,
-        opacity .22s ease,
-        filter .22s ease;
-    will-change: transform;
+        opacity .26s ease,
+        filter .26s ease;
+    will-change: transform, opacity;
 }
 
 .product-gallery-main:hover img {
@@ -47,8 +48,9 @@
 }
 
 .product-gallery-main img.is-changing {
-    opacity: .35;
-    filter: blur(4px);
+    opacity: .28;
+    filter: blur(5px);
+    transform: scale(1.02);
 }
 
 .product-gallery-thumbs {
@@ -342,6 +344,20 @@
     font-weight: 800;
 }
 
+.recently-viewed-section {
+    width: min(1320px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 20px 0 72px;
+}
+
+.recently-viewed-section[hidden] {
+    display: none;
+}
+
+.mobile-sticky-cta {
+    display: none;
+}
+
 @media (max-width: 980px) {
     .product-detail-container {
         grid-template-columns: 1fr;
@@ -360,7 +376,12 @@
 @media (max-width: 640px) {
     .product-detail-section {
         width: min(100% - 24px, 1320px);
-        padding: 48px 0;
+        padding: 48px 0 28px;
+    }
+
+    .recently-viewed-section {
+        width: min(100% - 24px, 1320px);
+        padding: 12px 0 56px;
     }
 
     .product-gallery {
@@ -393,5 +414,39 @@
 
     .product-trust-box {
         grid-template-columns: 1fr;
+    }
+
+    .mobile-sticky-cta {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        z-index: 80;
+        display: block;
+        padding: 8px;
+        border: 1px solid rgba(184, 139, 45, 0.22);
+        border-radius: 999px;
+        background: rgba(255, 250, 244, 0.88);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 18px 46px rgba(46, 42, 40, 0.18);
+    }
+
+    .mobile-sticky-cta a {
+        min-height: 52px;
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        color: #fff;
+        background: linear-gradient(135deg, #b88b2d, #d8b35f);
+        font-size: 14px;
+        font-weight: 950;
+        text-decoration: none;
+        box-shadow: 0 14px 28px rgba(184, 139, 45, 0.28);
+    }
+
+    body {
+        padding-bottom: 84px;
     }
 }
