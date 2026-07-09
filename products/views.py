@@ -69,6 +69,8 @@ def product_detail(request, slug):
         is_active=True,
     )
 
+    gallery_images = product.gallery_images.filter(is_active=True)
+
     related_products = (
         Product.objects.filter(
             category=product.category,
@@ -81,6 +83,7 @@ def product_detail(request, slug):
 
     context = {
         "product": product,
+        "gallery_images": gallery_images,
         "related_products": related_products,
     }
 

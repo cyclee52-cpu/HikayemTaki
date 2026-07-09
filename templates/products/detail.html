@@ -7,13 +7,55 @@
 <section class="product-detail-section">
     <div class="product-detail-container">
 
-        <div class="product-detail-media">
-            {% if product.image %}
-                <img src="{{ product.image.url }}" alt="{{ product.name }}">
-            {% else %}
-                <div class="product-detail-placeholder">
-                    <span>Hikayem Takı</span>
-                    <small>Görsel yakında eklenecek</small>
+        <div class="product-gallery">
+            <div class="product-gallery-main" id="productGalleryMain">
+                {% if product.image %}
+                    <img
+                        id="mainProductImage"
+                        src="{{ product.image.url }}"
+                        alt="{{ product.name }}"
+                    >
+                {% elif gallery_images %}
+                    {% with first_image=gallery_images.0 %}
+                        <img
+                            id="mainProductImage"
+                            src="{{ first_image.image.url }}"
+                            alt="{{ first_image.alt_text|default:product.name }}"
+                        >
+                    {% endwith %}
+                {% else %}
+                    <div class="product-detail-placeholder">
+                        <span>Hikayem Takı</span>
+                        <small>Görsel yakında eklenecek</small>
+                    </div>
+                {% endif %}
+            </div>
+
+            {% if product.image or gallery_images %}
+                <div class="product-gallery-thumbs" aria-label="Ürün galeri görselleri">
+                    {% if product.image %}
+                        <button
+                            type="button"
+                            class="product-gallery-thumb active"
+                            data-image="{{ product.image.url }}"
+                            data-alt="{{ product.name }}"
+                            aria-label="Ana ürün görseli"
+                        >
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </button>
+                    {% endif %}
+
+                    {% for image in gallery_images %}
+                        <button
+                            type="button"
+                            class="product-gallery-thumb {% if not product.image and forloop.first %}active{% endif %}"
+                            data-image="{{ image.image.url }}"
+                            data-alt="{{ image.alt_text|default:product.name }}"
+                            aria-label="{{ image.alt_text|default:product.name }}"
+                        >
+                            <img src="{{ image.image.url }}" alt="{{ image.alt_text|default:product.name }}">
+                        </button>
+                    {% endfor %}
                 </div>
             {% endif %}
         </div>
@@ -35,7 +77,7 @@
 
             <div class="product-detail-rating">
                 <span>★★★★★</span>
-                <small>4.9</small>
+                <small>4.9 · Hikayem Takı seçkisi</small>
             </div>
 
             <p class="product-detail-price">₺{{ product.price }}</p>
@@ -59,37 +101,41 @@
 
             <div class="product-detail-actions">
                 {% if product.shopier_url %}
-                    <a href="{{ product.shopier_url }}" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                    <a href="{{ product.shopier_url }}" class="product-shopier-btn" target="_blank" rel="noopener noreferrer">
                         Shopier’de Güvenli Satın Al
                     </a>
                 {% else %}
-                    <a href="https://www.instagram.com/hikayemtaki/" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.instagram.com/hikayemtaki/" class="product-shopier-btn" target="_blank" rel="noopener noreferrer">
                         Satın Almak İçin Sor
                     </a>
                 {% endif %}
 
-                <a href="https://www.instagram.com/hikayemtaki/" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/hikayemtaki/" class="product-instagram-btn" target="_blank" rel="noopener noreferrer">
                     Instagram’dan Sor
                 </a>
             </div>
 
             <div class="product-trust-box">
                 <div>
+                    <span class="trust-icon">✦</span>
                     <strong>Kararmaya Dayanıklı Çelik</strong>
                     <span>Uzun ömürlü parlaklık</span>
                 </div>
 
                 <div>
+                    <span class="trust-icon">≈</span>
                     <strong>Suya Dayanıklı</strong>
                     <span>Günlük kullanıma uygun</span>
                 </div>
 
                 <div>
+                    <span class="trust-icon">↗</span>
                     <strong>Hızlı Kargo</strong>
                     <span>Kısa sürede hazırlanır</span>
                 </div>
 
                 <div>
+                    <span class="trust-icon">♡</span>
                     <strong>Özenli Paketleme</strong>
                     <span>Sevgiyle hazırlanır</span>
                 </div>
@@ -145,5 +191,68 @@
         {% endfor %}
     </div>
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const galleryMain = document.getElementById("productGalleryMain");
+        const mainImage = document.getElementById("mainProductImage");
+        const thumbs = document.querySelectorAll(".product-gallery-thumb");
+
+        if (!mainImage || !thumbs.length) {
+            return;
+        }
+
+        function changeImage(thumb) {
+            const imageUrl = thumb.dataset.image;
+            const imageAlt = thumb.dataset.alt || "";
+
+            if (!imageUrl || mainImage.src === imageUrl) {
+                return;
+            }
+
+            mainImage.classList.add("is-changing");
+
+            setTimeout(function () {
+                mainImage.src = imageUrl;
+                mainImage.alt = imageAlt;
+                mainImage.classList.remove("is-changing");
+            }, 120);
+
+            thumbs.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+            thumb.classList.add("active");
+        }
+
+        thumbs.forEach(function (thumb) {
+            thumb.addEventListener("mouseenter", function () {
+                changeImage(thumb);
+            });
+
+            thumb.addEventListener("focus", function () {
+                changeImage(thumb);
+            });
+
+            thumb.addEventListener("click", function () {
+                changeImage(thumb);
+            });
+        });
+
+        if (galleryMain) {
+            galleryMain.addEventListener("mousemove", function (event) {
+                const rect = galleryMain.getBoundingClientRect();
+                const x = ((event.clientX - rect.left) / rect.width) * 100;
+                const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+                mainImage.style.transformOrigin = x + "% " + y + "%";
+            });
+
+            galleryMain.addEventListener("mouseleave", function () {
+                mainImage.style.transformOrigin = "center center";
+            });
+        }
+    });
+</script>
 
 {% endblock %}
