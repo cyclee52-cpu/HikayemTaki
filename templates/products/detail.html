@@ -38,7 +38,13 @@
             {% if product.image or gallery_images %}
                 <div class="product-gallery-thumbs" aria-label="Ürün galeri görselleri">
                     {% if product.image %}
-                        <button type="button" class="product-gallery-thumb active" data-image="{{ product.image.url }}" data-alt="{{ product.name }}">
+                        <button
+                            type="button"
+                            class="product-gallery-thumb active"
+                            data-image="{{ product.image.url }}"
+                            data-alt="{{ product.name }}"
+                            aria-label="Ana ürün görseli"
+                        >
                             <img src="{{ product.image.url }}" alt="{{ product.name }}">
                         </button>
                     {% endif %}
@@ -49,6 +55,7 @@
                             class="product-gallery-thumb {% if not product.image and forloop.first %}active{% endif %}"
                             data-image="{{ image.image.url }}"
                             data-alt="{{ image.alt_text|default:product.name }}"
+                            aria-label="{{ image.alt_text|default:product.name }}"
                         >
                             <img src="{{ image.image.url }}" alt="{{ image.alt_text|default:product.name }}">
                         </button>
@@ -99,8 +106,8 @@
                         Shopier’de Güvenli Satın Al
                     </a>
                 {% else %}
-                    <a href="https://www.instagram.com/hikayemtaki/" class="product-shopier-btn" target="_blank" rel="noopener noreferrer">
-                        Satın Almak İçin Sor
+                    <a href="https://www.shopier.com/hikayemtaki" class="product-shopier-btn" target="_blank" rel="noopener noreferrer">
+                        Shopier Üzerinden Al
                     </a>
                 {% endif %}
 
@@ -110,10 +117,29 @@
             </div>
 
             <div class="product-trust-box">
-                <div><span class="trust-icon">✦</span><strong>Kararmaya Dayanıklı Çelik</strong><span>Uzun ömürlü parlaklık</span></div>
-                <div><span class="trust-icon">≈</span><strong>Suya Dayanıklı</strong><span>Günlük kullanıma uygun</span></div>
-                <div><span class="trust-icon">↗</span><strong>Hızlı Kargo</strong><span>Kısa sürede hazırlanır</span></div>
-                <div><span class="trust-icon">♡</span><strong>Özenli Paketleme</strong><span>Sevgiyle hazırlanır</span></div>
+                <div>
+                    <span class="trust-icon">✦</span>
+                    <strong>Kararmaya Dayanıklı Çelik</strong>
+                    <span>Uzun ömürlü parlaklık</span>
+                </div>
+
+                <div>
+                    <span class="trust-icon">≈</span>
+                    <strong>Suya Dayanıklı</strong>
+                    <span>Günlük kullanıma uygun</span>
+                </div>
+
+                <div>
+                    <span class="trust-icon">↗</span>
+                    <strong>Hızlı Kargo</strong>
+                    <span>Kısa sürede hazırlanır</span>
+                </div>
+
+                <div>
+                    <span class="trust-icon">♡</span>
+                    <strong>Özenli Paketleme</strong>
+                    <span>Sevgiyle hazırlanır</span>
+                </div>
             </div>
         </div>
 
@@ -178,7 +204,7 @@
     {% if product.shopier_url %}
         <a href="{{ product.shopier_url }}" target="_blank" rel="noopener noreferrer">Shopier’de Güvenli Satın Al</a>
     {% else %}
-        <a href="https://www.instagram.com/hikayemtaki/" target="_blank" rel="noopener noreferrer">Satın Almak İçin Sor</a>
+        <a href="https://www.shopier.com/hikayemtaki" target="_blank" rel="noopener noreferrer">Shopier Üzerinden Al</a>
     {% endif %}
 </div>
 
