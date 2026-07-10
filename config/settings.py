@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Yerel geliştirme ortamında proje kökündeki .env dosyasını yükler.
-# Canlı ortamda cPanel ortam değişkenleri kullanılabilir.
+# Canlı ortamda cPanel ortam değişkenleri kullanılır.
 load_dotenv(BASE_DIR / ".env")
 
 
@@ -152,11 +152,12 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "public" / "static"
 
 
-MEDIA_URL = "media/"
+MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 
