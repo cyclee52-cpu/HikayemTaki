@@ -79,6 +79,19 @@ SECURE_SSL_REDIRECT = get_env_bool(
     default=False,
 )
 
+SECURE_HSTS_SECONDS = int(
+    os.getenv("DJANGO_SECURE_HSTS_SECONDS", "0")
+)
+
+SECURE_HSTS_INCLUDE_SUBDOMAINS = get_env_bool(
+    "DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS",
+    default=False,
+)
+
+SECURE_HSTS_PRELOAD = get_env_bool(
+    "DJANGO_SECURE_HSTS_PRELOAD",
+    default=False,
+)
 
 INSTALLED_APPS = [
     "django.contrib.admin",
