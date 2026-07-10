@@ -60,6 +60,25 @@ ALLOWED_HOSTS = get_env_list(
     default="127.0.0.1,localhost",
 )
 
+CSRF_TRUSTED_ORIGINS = get_env_list(
+    "DJANGO_CSRF_TRUSTED_ORIGINS",
+)
+
+SESSION_COOKIE_SECURE = get_env_bool(
+    "DJANGO_SESSION_COOKIE_SECURE",
+    default=False,
+)
+
+CSRF_COOKIE_SECURE = get_env_bool(
+    "DJANGO_CSRF_COOKIE_SECURE",
+    default=False,
+)
+
+SECURE_SSL_REDIRECT = get_env_bool(
+    "DJANGO_SECURE_SSL_REDIRECT",
+    default=False,
+)
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",
