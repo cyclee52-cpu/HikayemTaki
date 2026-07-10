@@ -1,0 +1,567 @@
+[
+{
+  "model": "products.category",
+  "pk": 1,
+  "fields": {
+    "name": "Kolye",
+    "slug": "kolye",
+    "description": "Þýk Zarif Kolyeler",
+    "is_active": true,
+    "created_at": "2026-07-06T20:33:17.365Z",
+    "updated_at": "2026-07-06T20:33:17.366Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 2,
+  "fields": {
+    "name": "Bileklik",
+    "slug": "bileklik",
+    "description": "",
+    "is_active": true,
+    "created_at": "2026-07-08T19:04:09.814Z",
+    "updated_at": "2026-07-08T19:04:09.814Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 3,
+  "fields": {
+    "name": "Kelepçe",
+    "slug": "kelepce",
+    "description": "",
+    "is_active": true,
+    "created_at": "2026-07-08T19:04:09.827Z",
+    "updated_at": "2026-07-08T19:04:09.827Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 4,
+  "fields": {
+    "name": "Yüzük",
+    "slug": "yuzuk",
+    "description": "",
+    "is_active": true,
+    "created_at": "2026-07-08T19:04:09.834Z",
+    "updated_at": "2026-07-08T19:04:09.834Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 5,
+  "fields": {
+    "name": "Broþ",
+    "slug": "bros",
+    "description": "",
+    "is_active": true,
+    "created_at": "2026-07-08T19:04:09.841Z",
+    "updated_at": "2026-07-08T19:04:09.842Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 6,
+  "fields": {
+    "name": "Küpe",
+    "slug": "kupe",
+    "description": "",
+    "is_active": true,
+    "created_at": "2026-07-08T19:04:09.853Z",
+    "updated_at": "2026-07-08T19:04:09.853Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 2,
+  "fields": {
+    "category": 2,
+    "name": "Sedef Deniz Kabuðu Gold Bileklik",
+    "slug": "sedef-deniz-kabugu-gold-bileklik",
+    "description": "",
+    "price": "385.00",
+    "stock": 4,
+    "image": "products/9551F4CE-602C-470D-B166-FF86A21AE647.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48754686",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.477Z",
+    "updated_at": "2026-07-09T19:31:17.663Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 3,
+  "fields": {
+    "category": 2,
+    "name": "Luna Clover Iþýltýsý Çelik Bileklik – Sedef Detaylý Zirkon Taþlý",
+    "slug": "luna-clover-islts-celik-bileklik-sedef-detayl-zirkon-tasl",
+    "description": "",
+    "price": "350.00",
+    "stock": 5,
+    "image": "products/EFDF3ECA-DB7B-4765-B823-D8759041F5BA.jpg",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756602",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.486Z",
+    "updated_at": "2026-07-09T19:30:34.616Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 4,
+  "fields": {
+    "category": 2,
+    "name": "Blue Butterfly Tennis Bileklik",
+    "slug": "blue-butterfly-tennis-bileklik",
+    "description": "",
+    "price": "350.00",
+    "stock": 5,
+    "image": "products/BCEA563F-A842-46DA-80C2-98D71EFF837E.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756575",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.492Z",
+    "updated_at": "2026-07-09T19:30:03.040Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 5,
+  "fields": {
+    "category": 2,
+    "name": "Blue Butterfly Tennis Bileklik Silver",
+    "slug": "blue-butterfly-tennis-bileklik-silver",
+    "description": "",
+    "price": "350.00",
+    "stock": 5,
+    "image": "products/D3A06F97-2D37-438C-AC24-9D2678FFAC82.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756591",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.498Z",
+    "updated_at": "2026-07-09T19:29:51.293Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 6,
+  "fields": {
+    "category": 2,
+    "name": "Star Tennis Çelik Bileklik – Zirkon Taþlý Gold",
+    "slug": "star-tennis-celik-bileklik-zirkon-tasl-gold",
+    "description": "",
+    "price": "470.00",
+    "stock": 5,
+    "image": "products/ChatGPT_Image_9_Tem_2026_22_14_07_9PioYHx.png",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756610",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.504Z",
+    "updated_at": "2026-07-09T19:16:49.522Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "category": 2,
+    "name": "Star Tennis Çelik Bileklik – Zirkon Taþlý Silver",
+    "slug": "star-tennis-celik-bileklik-zirkon-tasl-silver",
+    "description": "",
+    "price": "470.00",
+    "stock": 5,
+    "image": "products/ChatGPT_Image_9_Tem_2026_22_15_15.png",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756623",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.510Z",
+    "updated_at": "2026-07-09T19:16:14.200Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 8,
+  "fields": {
+    "category": 2,
+    "name": "Çift Taraflý Sedef Çiçek Gold Bileklik",
+    "slug": "cift-tarafl-sedef-cicek-gold-bileklik",
+    "description": "",
+    "price": "660.00",
+    "stock": 5,
+    "image": "products/9126AAE3-2498-43FD-91DD-DA58945C27FC.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756046",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.516Z",
+    "updated_at": "2026-07-09T19:29:12.469Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 9,
+  "fields": {
+    "category": 3,
+    "name": "Mint Iþýltý Gold Kelepçe Bileklik Turuncu",
+    "slug": "mint-islt-gold-kelepce-bileklik-turuncu",
+    "description": "",
+    "price": "605.00",
+    "stock": 5,
+    "image": "products/ChatGPT_Image_9_Tem_2026_21_49_25.png",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48754802",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.522Z",
+    "updated_at": "2026-07-09T18:50:40.205Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 10,
+  "fields": {
+    "category": 3,
+    "name": "Mint Iþýltý Gold Kelepçe Bileklik Yeþil",
+    "slug": "mint-islt-gold-kelepce-bileklik-yesil",
+    "description": "",
+    "price": "605.00",
+    "stock": 5,
+    "image": "products/ChatGPT_Image_9_Tem_2026_21_55_49.png",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48754792",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.528Z",
+    "updated_at": "2026-07-09T18:55:59.426Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 11,
+  "fields": {
+    "category": 3,
+    "name": "Mint Iþýltý Gold Kelepçe Bileklik Renkli",
+    "slug": "mint-islt-gold-kelepce-bileklik-renkli",
+    "description": "",
+    "price": "605.00",
+    "stock": 4,
+    "image": "products/ChatGPT_Image_9_Tem_2026_21_44_39.png",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48754810",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.534Z",
+    "updated_at": "2026-07-09T18:46:21.346Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 12,
+  "fields": {
+    "category": 4,
+    "name": "Blush Aura Gold Ayarlanabilir Yüzük",
+    "slug": "blush-aura-gold-ayarlanabilir-yuzuk",
+    "description": "",
+    "price": "279.00",
+    "stock": 4,
+    "image": "products/B5C46980-221E-4BF3-BC9F-BF0385D75CAB.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756374",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.541Z",
+    "updated_at": "2026-07-09T19:36:30.532Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 13,
+  "fields": {
+    "category": 4,
+    "name": "Mint Aura Gold Ayarlanabilir Yüzük Yeþil",
+    "slug": "mint-aura-gold-ayarlanabilir-yuzuk-yesil",
+    "description": "",
+    "price": "279.00",
+    "stock": 3,
+    "image": "products/F566B05A-CFCC-40D0-864D-82757B0556A0.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756399",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.546Z",
+    "updated_at": "2026-07-09T19:36:18.458Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 14,
+  "fields": {
+    "category": 4,
+    "name": "Pastel Harmony Gold Ayarlanabilir Yüzük Renkli",
+    "slug": "pastel-harmony-gold-ayarlanabilir-yuzuk-renkli",
+    "description": "",
+    "price": "279.00",
+    "stock": 5,
+    "image": "products/708DE4F3-8A63-4A4D-BAF2-7478BF705B2D.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756389",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.550Z",
+    "updated_at": "2026-07-09T19:35:51.140Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 15,
+  "fields": {
+    "category": 4,
+    "name": "Deniz Yýldýzý Gold Ayarlanabilir Yüzük",
+    "slug": "deniz-yldz-gold-ayarlanabilir-yuzuk",
+    "description": "",
+    "price": "279.00",
+    "stock": 5,
+    "image": "products/C746E0FD-7031-4B62-9A3F-C452EA3349EC.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756152",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.554Z",
+    "updated_at": "2026-07-09T19:34:28.586Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 16,
+  "fields": {
+    "category": 4,
+    "name": "Modern Gold Ayarlanabilir Yüzük",
+    "slug": "modern-gold-ayarlanabilir-yuzuk",
+    "description": "",
+    "price": "279.00",
+    "stock": 3,
+    "image": "products/9D1C6D42-67D7-4256-8233-28C72BD23D34.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756167",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.557Z",
+    "updated_at": "2026-07-09T19:34:09.897Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 17,
+  "fields": {
+    "category": 4,
+    "name": "Aura Gold Ayarlanabilir Yüzük",
+    "slug": "aura-gold-ayarlanabilir-yuzuk",
+    "description": "",
+    "price": "279.00",
+    "stock": 3,
+    "image": "products/CD3F1C60-90BE-443E-8F38-3222B53DA652.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756249",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.560Z",
+    "updated_at": "2026-07-09T19:33:02.130Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 18,
+  "fields": {
+    "category": 4,
+    "name": "Harmony Çift Renk Ayarlanabilir Yüzük",
+    "slug": "harmony-cift-renk-ayarlanabilir-yuzuk",
+    "description": "",
+    "price": "279.00",
+    "stock": 3,
+    "image": "products/71FEBB5D-3BBC-4075-BBAA-56583105FAD8.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756182",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.563Z",
+    "updated_at": "2026-07-09T19:32:30.046Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 19,
+  "fields": {
+    "category": 5,
+    "name": "Silver ÇayFincaný Rozet",
+    "slug": "silver-cayfincan-rozet",
+    "description": "",
+    "price": "300.00",
+    "stock": 3,
+    "image": "products/CF23AAA0-3DC5-4FA6-A675-B5638D433209.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756102",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.566Z",
+    "updated_at": "2026-07-09T19:32:02.092Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 20,
+  "fields": {
+    "category": 5,
+    "name": "Kýrmýzý Kahve Fincaný Gold Rozet",
+    "slug": "krmz-kahve-fincan-gold-rozet",
+    "description": "",
+    "price": "300.00",
+    "stock": 2,
+    "image": "products/82FE67D5-FBED-4BAB-9278-BBB3882767E5.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756079",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.569Z",
+    "updated_at": "2026-07-09T19:31:51.424Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 21,
+  "fields": {
+    "category": 1,
+    "name": "Aurora Güneþ Katmanlý Kolye Gold",
+    "slug": "aurora-gunes-katmanl-kolye-gold",
+    "description": "",
+    "price": "330.00",
+    "stock": 5,
+    "image": "products/Altýn_takýlarla_zarif_bir_detay.png",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48755699",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.573Z",
+    "updated_at": "2026-07-09T18:05:03.926Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 22,
+  "fields": {
+    "category": 1,
+    "name": "Aurora Güneþ Katmanlý Kolye Silver",
+    "slug": "aurora-gunes-katmanl-kolye-silver",
+    "description": "",
+    "price": "330.00",
+    "stock": 5,
+    "image": "products/Zarif_taký_detayý_ve_doðal_ýþýltý.png",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48755640",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.576Z",
+    "updated_at": "2026-07-09T18:06:53.559Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 23,
+  "fields": {
+    "category": 1,
+    "name": "Galaksi Gold Kolye",
+    "slug": "galaksi-gold-kolye",
+    "description": "",
+    "price": "385.00",
+    "stock": 4,
+    "image": "products/ChatGPT_Image_9_Tem_2026_21_33_40.png",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48755833",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.579Z",
+    "updated_at": "2026-07-09T18:33:58.520Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 24,
+  "fields": {
+    "category": 1,
+    "name": "Galaksi Silver Kolye",
+    "slug": "galaksi-silver-kolye",
+    "description": "",
+    "price": "385.00",
+    "stock": 5,
+    "image": "products/ChatGPT_Image_9_Tem_2026_21_31_42.png",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48755790",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.583Z",
+    "updated_at": "2026-07-09T18:33:09.163Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 25,
+  "fields": {
+    "category": 1,
+    "name": "Þans Yoncasý Gold Kolye",
+    "slug": "sans-yoncas-gold-kolye",
+    "description": "",
+    "price": "440.00",
+    "stock": 5,
+    "image": "products/Sade_bir_zarafet__Altýn_kolye_detaylarý.png",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48755754",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.587Z",
+    "updated_at": "2026-07-09T18:06:32.749Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 26,
+  "fields": {
+    "category": 6,
+    "name": "Love Charm 6'lý Gold Küpe Seti",
+    "slug": "love-charm-6l-gold-kupe-seti",
+    "description": "",
+    "price": "550.00",
+    "stock": 5,
+    "image": "products/EB28C516-62F7-4DBA-B34C-A8CF7E11CE1B.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756413",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.591Z",
+    "updated_at": "2026-07-08T20:19:20.137Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 27,
+  "fields": {
+    "category": 6,
+    "name": "Luna Blossom 3'lü Gold Küpe Seti",
+    "slug": "luna-blossom-3lu-gold-kupe-seti",
+    "description": "",
+    "price": "280.00",
+    "stock": 5,
+    "image": "products/666EF0AD-8B5B-429C-A876-D411EA42AE2D.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756404",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.594Z",
+    "updated_at": "2026-07-08T20:18:39.325Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 28,
+  "fields": {
+    "category": 6,
+    "name": "Sedef Aura Gold Küpe",
+    "slug": "sedef-aura-gold-kupe",
+    "description": "",
+    "price": "280.00",
+    "stock": 5,
+    "image": "products/F7D6336D-A61A-4AE2-B096-BAEB1D517703.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48756117",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.597Z",
+    "updated_at": "2026-07-08T20:16:36.124Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 29,
+  "fields": {
+    "category": 6,
+    "name": "Mercan Nautilus Gold Küpe",
+    "slug": "mercan-nautilus-gold-kupe",
+    "description": "",
+    "price": "260.00",
+    "stock": 5,
+    "image": "products/82DB3B57-C412-492D-9D2F-415513D3299C.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48754723",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.601Z",
+    "updated_at": "2026-07-08T20:16:14.377Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 30,
+  "fields": {
+    "category": 6,
+    "name": "Mint Deniz Kabuðu Gold Detaylý Küpe",
+    "slug": "mint-deniz-kabugu-gold-detayl-kupe",
+    "description": "",
+    "price": "225.00",
+    "stock": 5,
+    "image": "products/341B5113-45E6-421C-8C5E-0C88D23B33BC.PNG",
+    "shopier_url": "https://www.shopier.com/hikayemtaki/48754641",
+    "is_active": true,
+    "created_at": "2026-07-08T19:10:01.604Z",
+    "updated_at": "2026-07-09T09:19:31.676Z"
+  }
+}
+]
