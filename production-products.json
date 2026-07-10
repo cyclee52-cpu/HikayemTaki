@@ -5,7 +5,7 @@
   "fields": {
     "name": "Kolye",
     "slug": "kolye",
-    "description": "Þýk Zarif Kolyeler",
+    "description": "ÅžÄ±k Zarif Kolyeler",
     "is_active": true,
     "created_at": "2026-07-06T20:33:17.365Z",
     "updated_at": "2026-07-06T20:33:17.366Z"
@@ -27,7 +27,7 @@
   "model": "products.category",
   "pk": 3,
   "fields": {
-    "name": "Kelepçe",
+    "name": "KelepÃ§e",
     "slug": "kelepce",
     "description": "",
     "is_active": true,
@@ -39,7 +39,7 @@
   "model": "products.category",
   "pk": 4,
   "fields": {
-    "name": "Yüzük",
+    "name": "YÃ¼zÃ¼k",
     "slug": "yuzuk",
     "description": "",
     "is_active": true,
@@ -51,7 +51,7 @@
   "model": "products.category",
   "pk": 5,
   "fields": {
-    "name": "Broþ",
+    "name": "BroÅŸ",
     "slug": "bros",
     "description": "",
     "is_active": true,
@@ -63,7 +63,7 @@
   "model": "products.category",
   "pk": 6,
   "fields": {
-    "name": "Küpe",
+    "name": "KÃ¼pe",
     "slug": "kupe",
     "description": "",
     "is_active": true,
@@ -76,7 +76,7 @@
   "pk": 2,
   "fields": {
     "category": 2,
-    "name": "Sedef Deniz Kabuðu Gold Bileklik",
+    "name": "Sedef Deniz KabuÄŸu Gold Bileklik",
     "slug": "sedef-deniz-kabugu-gold-bileklik",
     "description": "",
     "price": "385.00",
@@ -93,7 +93,7 @@
   "pk": 3,
   "fields": {
     "category": 2,
-    "name": "Luna Clover Iþýltýsý Çelik Bileklik – Sedef Detaylý Zirkon Taþlý",
+    "name": "Luna Clover IÅŸÄ±ltÄ±sÄ± Ã‡elik Bileklik â€“ Sedef DetaylÄ± Zirkon TaÅŸlÄ±",
     "slug": "luna-clover-islts-celik-bileklik-sedef-detayl-zirkon-tasl",
     "description": "",
     "price": "350.00",
@@ -144,7 +144,7 @@
   "pk": 6,
   "fields": {
     "category": 2,
-    "name": "Star Tennis Çelik Bileklik – Zirkon Taþlý Gold",
+    "name": "Star Tennis Ã‡elik Bileklik â€“ Zirkon TaÅŸlÄ± Gold",
     "slug": "star-tennis-celik-bileklik-zirkon-tasl-gold",
     "description": "",
     "price": "470.00",
@@ -161,7 +161,7 @@
   "pk": 7,
   "fields": {
     "category": 2,
-    "name": "Star Tennis Çelik Bileklik – Zirkon Taþlý Silver",
+    "name": "Star Tennis Ã‡elik Bileklik â€“ Zirkon TaÅŸlÄ± Silver",
     "slug": "star-tennis-celik-bileklik-zirkon-tasl-silver",
     "description": "",
     "price": "470.00",
@@ -178,7 +178,7 @@
   "pk": 8,
   "fields": {
     "category": 2,
-    "name": "Çift Taraflý Sedef Çiçek Gold Bileklik",
+    "name": "Ã‡ift TaraflÄ± Sedef Ã‡iÃ§ek Gold Bileklik",
     "slug": "cift-tarafl-sedef-cicek-gold-bileklik",
     "description": "",
     "price": "660.00",
@@ -195,7 +195,7 @@
   "pk": 9,
   "fields": {
     "category": 3,
-    "name": "Mint Iþýltý Gold Kelepçe Bileklik Turuncu",
+    "name": "Mint IÅŸÄ±ltÄ± Gold KelepÃ§e Bileklik Turuncu",
     "slug": "mint-islt-gold-kelepce-bileklik-turuncu",
     "description": "",
     "price": "605.00",
@@ -212,7 +212,7 @@
   "pk": 10,
   "fields": {
     "category": 3,
-    "name": "Mint Iþýltý Gold Kelepçe Bileklik Yeþil",
+    "name": "Mint IÅŸÄ±ltÄ± Gold KelepÃ§e Bileklik YeÅŸil",
     "slug": "mint-islt-gold-kelepce-bileklik-yesil",
     "description": "",
     "price": "605.00",
@@ -229,7 +229,7 @@
   "pk": 11,
   "fields": {
     "category": 3,
-    "name": "Mint Iþýltý Gold Kelepçe Bileklik Renkli",
+    "name": "Mint IÅŸÄ±ltÄ± Gold KelepÃ§e Bileklik Renkli",
     "slug": "mint-islt-gold-kelepce-bileklik-renkli",
     "description": "",
     "price": "605.00",
@@ -246,7 +246,7 @@
   "pk": 12,
   "fields": {
     "category": 4,
-    "name": "Blush Aura Gold Ayarlanabilir Yüzük",
+    "name": "Blush Aura Gold Ayarlanabilir YÃ¼zÃ¼k",
     "slug": "blush-aura-gold-ayarlanabilir-yuzuk",
     "description": "",
     "price": "279.00",
@@ -263,7 +263,7 @@
   "pk": 13,
   "fields": {
     "category": 4,
-    "name": "Mint Aura Gold Ayarlanabilir Yüzük Yeþil",
+    "name": "Mint Aura Gold Ayarlanabilir YÃ¼zÃ¼k YeÅŸil",
     "slug": "mint-aura-gold-ayarlanabilir-yuzuk-yesil",
     "description": "",
     "price": "279.00",
@@ -280,7 +280,7 @@
   "pk": 14,
   "fields": {
     "category": 4,
-    "name": "Pastel Harmony Gold Ayarlanabilir Yüzük Renkli",
+    "name": "Pastel Harmony Gold Ayarlanabilir YÃ¼zÃ¼k Renkli",
     "slug": "pastel-harmony-gold-ayarlanabilir-yuzuk-renkli",
     "description": "",
     "price": "279.00",
@@ -297,7 +297,7 @@
   "pk": 15,
   "fields": {
     "category": 4,
-    "name": "Deniz Yýldýzý Gold Ayarlanabilir Yüzük",
+    "name": "Deniz YÄ±ldÄ±zÄ± Gold Ayarlanabilir YÃ¼zÃ¼k",
     "slug": "deniz-yldz-gold-ayarlanabilir-yuzuk",
     "description": "",
     "price": "279.00",
@@ -314,7 +314,7 @@
   "pk": 16,
   "fields": {
     "category": 4,
-    "name": "Modern Gold Ayarlanabilir Yüzük",
+    "name": "Modern Gold Ayarlanabilir YÃ¼zÃ¼k",
     "slug": "modern-gold-ayarlanabilir-yuzuk",
     "description": "",
     "price": "279.00",
@@ -331,7 +331,7 @@
   "pk": 17,
   "fields": {
     "category": 4,
-    "name": "Aura Gold Ayarlanabilir Yüzük",
+    "name": "Aura Gold Ayarlanabilir YÃ¼zÃ¼k",
     "slug": "aura-gold-ayarlanabilir-yuzuk",
     "description": "",
     "price": "279.00",
@@ -348,7 +348,7 @@
   "pk": 18,
   "fields": {
     "category": 4,
-    "name": "Harmony Çift Renk Ayarlanabilir Yüzük",
+    "name": "Harmony Ã‡ift Renk Ayarlanabilir YÃ¼zÃ¼k",
     "slug": "harmony-cift-renk-ayarlanabilir-yuzuk",
     "description": "",
     "price": "279.00",
@@ -365,7 +365,7 @@
   "pk": 19,
   "fields": {
     "category": 5,
-    "name": "Silver ÇayFincaný Rozet",
+    "name": "Silver Ã‡ayFincanÄ± Rozet",
     "slug": "silver-cayfincan-rozet",
     "description": "",
     "price": "300.00",
@@ -382,7 +382,7 @@
   "pk": 20,
   "fields": {
     "category": 5,
-    "name": "Kýrmýzý Kahve Fincaný Gold Rozet",
+    "name": "KÄ±rmÄ±zÄ± Kahve FincanÄ± Gold Rozet",
     "slug": "krmz-kahve-fincan-gold-rozet",
     "description": "",
     "price": "300.00",
@@ -399,12 +399,12 @@
   "pk": 21,
   "fields": {
     "category": 1,
-    "name": "Aurora Güneþ Katmanlý Kolye Gold",
+    "name": "Aurora GÃ¼neÅŸ KatmanlÄ± Kolye Gold",
     "slug": "aurora-gunes-katmanl-kolye-gold",
     "description": "",
     "price": "330.00",
     "stock": 5,
-    "image": "products/Altýn_takýlarla_zarif_bir_detay.png",
+    "image": "products/AltÄ±n_takÄ±larla_zarif_bir_detay.png",
     "shopier_url": "https://www.shopier.com/hikayemtaki/48755699",
     "is_active": true,
     "created_at": "2026-07-08T19:10:01.573Z",
@@ -416,12 +416,12 @@
   "pk": 22,
   "fields": {
     "category": 1,
-    "name": "Aurora Güneþ Katmanlý Kolye Silver",
+    "name": "Aurora GÃ¼neÅŸ KatmanlÄ± Kolye Silver",
     "slug": "aurora-gunes-katmanl-kolye-silver",
     "description": "",
     "price": "330.00",
     "stock": 5,
-    "image": "products/Zarif_taký_detayý_ve_doðal_ýþýltý.png",
+    "image": "products/Zarif_takÄ±_detayÄ±_ve_doÄŸal_Ä±ÅŸÄ±ltÄ±.png",
     "shopier_url": "https://www.shopier.com/hikayemtaki/48755640",
     "is_active": true,
     "created_at": "2026-07-08T19:10:01.576Z",
@@ -467,12 +467,12 @@
   "pk": 25,
   "fields": {
     "category": 1,
-    "name": "Þans Yoncasý Gold Kolye",
+    "name": "Åžans YoncasÄ± Gold Kolye",
     "slug": "sans-yoncas-gold-kolye",
     "description": "",
     "price": "440.00",
     "stock": 5,
-    "image": "products/Sade_bir_zarafet__Altýn_kolye_detaylarý.png",
+    "image": "products/Sade_bir_zarafet__AltÄ±n_kolye_detaylarÄ±.png",
     "shopier_url": "https://www.shopier.com/hikayemtaki/48755754",
     "is_active": true,
     "created_at": "2026-07-08T19:10:01.587Z",
@@ -484,7 +484,7 @@
   "pk": 26,
   "fields": {
     "category": 6,
-    "name": "Love Charm 6'lý Gold Küpe Seti",
+    "name": "Love Charm 6'lÄ± Gold KÃ¼pe Seti",
     "slug": "love-charm-6l-gold-kupe-seti",
     "description": "",
     "price": "550.00",
@@ -501,7 +501,7 @@
   "pk": 27,
   "fields": {
     "category": 6,
-    "name": "Luna Blossom 3'lü Gold Küpe Seti",
+    "name": "Luna Blossom 3'lÃ¼ Gold KÃ¼pe Seti",
     "slug": "luna-blossom-3lu-gold-kupe-seti",
     "description": "",
     "price": "280.00",
@@ -518,7 +518,7 @@
   "pk": 28,
   "fields": {
     "category": 6,
-    "name": "Sedef Aura Gold Küpe",
+    "name": "Sedef Aura Gold KÃ¼pe",
     "slug": "sedef-aura-gold-kupe",
     "description": "",
     "price": "280.00",
@@ -535,7 +535,7 @@
   "pk": 29,
   "fields": {
     "category": 6,
-    "name": "Mercan Nautilus Gold Küpe",
+    "name": "Mercan Nautilus Gold KÃ¼pe",
     "slug": "mercan-nautilus-gold-kupe",
     "description": "",
     "price": "260.00",
@@ -552,7 +552,7 @@
   "pk": 30,
   "fields": {
     "category": 6,
-    "name": "Mint Deniz Kabuðu Gold Detaylý Küpe",
+    "name": "Mint Deniz KabuÄŸu Gold DetaylÄ± KÃ¼pe",
     "slug": "mint-deniz-kabugu-gold-detayl-kupe",
     "description": "",
     "price": "225.00",
