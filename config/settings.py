@@ -194,3 +194,62 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Production logging
+LOG_DIR = BASE_DIR / "logs"
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "production": {
+            "format": (
+                "{asctime} | {levelname} | {name} | "
+                "{module}:{lineno} | {message}"
+            ),
+            "style": "{",
+            "datefmt": "%Y-%m-%d %H:%M:%S",
+        },
+    },
+    "handlers": {
+        "django_file": {
+            "level": "INFO",
+            "class": "logging.handlers.WatchedFileHandler",
+            "filename": LOG_DIR / "django.log",
+            "formatter": "production",
+            "encoding": "utf-8",
+        },
+        "error_file": {
+            "level": "ERROR",
+            "class": "logging.handlers.WatchedFileHandler",
+            "filename": LOG_DIR / "error.log",
+            "formatter": "production",
+            "encoding": "utf-8",
+        },
+        "security_file": {
+            "level": "WARNING",
+            "class": "logging.handlers.WatchedFileHandler",
+            "filename": LOG_DIR / "security.log",
+            "formatter": "production",
+            "encoding": "utf-8",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": [
+                "django_file",
+                "error_file",
+            ],
+            "level": "INFO",
+            "propagate": False,
+        },
+        "django.security": {
+            "handlers": [
+                "security_file",
+                "error_file",
+            ],
+            "level": "WARNING",
+            "propagate": False,
+        },
+    },
+}
