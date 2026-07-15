@@ -65,10 +65,34 @@ def product_list(request):
                     }
                 )
 
+    products_url = f"{SITE_URL}{reverse('products:list')}"
+
+    if selected_category:
+        seo_title = f"{selected_category.name} Koleksiyonu | Hikayem Takı"
+        seo_description = (
+            f"{selected_category.name} koleksiyonunu keşfedin. "
+            "Kararmaya dayanıklı, zarif ve modern çelik takılar Hikayem Takı'da."
+        )
+        seo_robots = "noindex, follow"
+    else:
+        seo_title = "Çelik Takı Koleksiyonları | Hikayem Takı"
+        seo_description = (
+            "Kararmaya dayanıklı çelik küpe, kolye, bileklik ve yüzük "
+            "koleksiyonlarını keşfedin. Zarif tasarımlar Hikayem Takı'da."
+        )
+        seo_robots = (
+            "index, follow, max-image-preview:large, "
+            "max-snippet:-1, max-video-preview:-1"
+        )
+
     context = {
         "categories": categories,
         "selected_category": selected_category,
         "grouped_categories": grouped_categories,
+        "seo_title": seo_title,
+        "seo_description": seo_description,
+        "seo_robots": seo_robots,
+        "products_url": products_url,
     }
 
     return render(request, "products/list.html", context)

@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Tüm Ürünler | Hikayem Takı{% endblock %}
+{% block title %}{{ seo_title }}{% endblock %}
+{% block description %}{{ seo_description }}{% endblock %}
+{% block robots %}{{ seo_robots }}{% endblock %}
+{% block canonical_url %}{{ products_url }}{% endblock %}
+{% block og_title %}{{ seo_title }}{% endblock %}
+{% block og_description %}{{ seo_description }}{% endblock %}
+{% block og_url %}{{ products_url }}{% endblock %}
+{% block twitter_title %}{{ seo_title }}{% endblock %}
+{% block twitter_description %}{{ seo_description }}{% endblock %}
 
 {% block content %}
 
