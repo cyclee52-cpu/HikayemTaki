@@ -5,8 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}Hikayem Takı{% endblock %}</title>
-    <meta name="description" content="{% block description %}Hikayem Takı | Senin takın, senin hikayen.{% endblock %}">
+    <title>{% block title %}Hikayem Takı | Her Takının Bir Hikâyesi Var{% endblock %}</title>
+
+    <meta
+        name="description"
+        content="{% block description %}Hikayem Takı'nın zarif ve modern çelik takı koleksiyonlarını keşfedin. Her takının bir hikâyesi var.{% endblock %}"
+    >
+
+    <meta
+        name="robots"
+        content="{% block robots %}index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1{% endblock %}"
+    >
+
+    <link
+        rel="canonical"
+        href="{% block canonical_url %}https://hikayemtaki.com{{ request.path }}{% endblock %}"
+    >
+
+    {% static "img/logo/hikayem-logo.webp" as seo_default_image %}
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:site_name" content="Hikayem Takı">
+    <meta
+        property="og:title"
+        content="{% block og_title %}Hikayem Takı | Her Takının Bir Hikâyesi Var{% endblock %}"
+    >
+    <meta
+        property="og:description"
+        content="{% block og_description %}Zarif ve modern çelik takı koleksiyonlarını keşfedin. Her takının bir hikâyesi var.{% endblock %}"
+    >
+    <meta
+        property="og:url"
+        content="{% block og_url %}https://hikayemtaki.com{{ request.path }}{% endblock %}"
+    >
+    <meta
+        property="og:image"
+        content="{% block og_image %}https://hikayemtaki.com{{ seo_default_image }}{% endblock %}"
+    >
+    <meta property="og:image:alt" content="{% block og_image_alt %}Hikayem Takı{% endblock %}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta
+        name="twitter:title"
+        content="{% block twitter_title %}Hikayem Takı | Her Takının Bir Hikâyesi Var{% endblock %}"
+    >
+    <meta
+        name="twitter:description"
+        content="{% block twitter_description %}Zarif ve modern çelik takı koleksiyonlarını keşfedin. Her takının bir hikâyesi var.{% endblock %}"
+    >
+    <meta
+        name="twitter:image"
+        content="{% block twitter_image %}https://hikayemtaki.com{{ seo_default_image }}{% endblock %}"
+    >
+    <meta name="twitter:image:alt" content="{% block twitter_image_alt %}Hikayem Takı{% endblock %}">
+
+    {% block extra_head %}{% endblock %}
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
