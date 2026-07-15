@@ -2,6 +2,30 @@
 {% load static %}
 
 {% block title %}{{ product.name }} | Hikayem Takı{% endblock %}
+{% block description %}{{ seo_description }}{% endblock %}
+{% block canonical_url %}{{ product_url }}{% endblock %}
+{% block og_type %}product{% endblock %}
+{% block og_title %}{{ product.name }} | Hikayem Takı{% endblock %}
+{% block og_description %}{{ seo_description }}{% endblock %}
+{% block og_url %}{{ product_url }}{% endblock %}
+{% block og_image %}{% if product_image_url %}{{ product_image_url }}{% else %}{{ block.super }}{% endif %}{% endblock %}
+{% block og_image_alt %}{{ product.name }}{% endblock %}
+{% block twitter_title %}{{ product.name }} | Hikayem Takı{% endblock %}
+{% block twitter_description %}{{ seo_description }}{% endblock %}
+{% block twitter_image %}{% if product_image_url %}{{ product_image_url }}{% else %}{{ block.super }}{% endif %}{% endblock %}
+{% block twitter_image_alt %}{{ product.name }}{% endblock %}
+
+{% block extra_head %}
+    {{ block.super }}
+
+    <script type="application/ld+json">
+        {{ product_schema_json|safe }}
+    </script>
+
+    <script type="application/ld+json">
+        {{ breadcrumb_schema_json|safe }}
+    </script>
+{% endblock %}
 
 {% block content %}
 
