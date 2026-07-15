@@ -33,7 +33,8 @@
     class="product-detail-section"
     data-product-slug="{{ product.slug }}"
     data-product-name="{{ product.name }}"
-    data-product-price="₺{{ product.price }}"
+    data-product-price="{{ product.price }}"
+    data-product-category="{% if product.category %}{{ product.category.name }}{% endif %}"
     data-product-url="{% url 'products:detail' product.slug %}"
     {% if product.image %}
         data-product-image="{{ product.image.url }}"
@@ -247,14 +248,15 @@
 
 <div class="mobile-sticky-cta">
     {% if product.shopier_url %}
-        <a href="{{ product.shopier_url }}" target="_blank" rel="noopener noreferrer">Shopier’de Güvenli Satın Al</a>
+        <a href="{{ product.shopier_url }}" class="product-shopier-btn" target="_blank" rel="noopener noreferrer">Shopier’de Güvenli Satın Al</a>
     {% else %}
-        <a href="https://www.shopier.com/hikayemtaki" target="_blank" rel="noopener noreferrer">Shopier Üzerinden Al</a>
+        <a href="https://www.shopier.com/hikayemtaki" class="product-shopier-btn" target="_blank" rel="noopener noreferrer">Shopier Üzerinden Al</a>
     {% endif %}
 </div>
 
 <script src="{% static 'js/toast.js' %}"></script>
 <script src="{% static 'js/product-detail.js' %}"></script>
 <script src="{% static 'js/product-utilities.js' %}"></script>
+<script src="{% static 'js/analytics-events.js' %}"></script>
 
 {% endblock %}

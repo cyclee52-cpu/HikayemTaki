@@ -420,36 +420,6 @@
     display: none;
 }
 
-.hikayem-toast {
-    position: fixed;
-    left: 50%;
-    bottom: 28px;
-    z-index: 120;
-    min-width: 220px;
-    max-width: calc(100% - 32px);
-    padding: 13px 18px;
-    border: 1px solid rgba(184, 139, 45, 0.22);
-    border-radius: 999px;
-    background: rgba(255, 250, 244, 0.92);
-    color: #2f2925;
-    font-size: 13px;
-    font-weight: 900;
-    text-align: center;
-    box-shadow: 0 18px 48px rgba(46, 42, 40, 0.18);
-    backdrop-filter: blur(18px);
-    opacity: 0;
-    transform: translate(-50%, 18px) scale(.96);
-    pointer-events: none;
-    transition:
-        opacity .25s ease,
-        transform .25s ease;
-}
-
-.hikayem-toast.show {
-    opacity: 1;
-    transform: translate(-50%, 0) scale(1);
-}
-
 @keyframes product-shimmer {
     100% {
         transform: translateX(100%);
@@ -673,7 +643,11 @@
     position: fixed;
     top: 24px;
     right: 24px;
+    bottom: auto;
+    left: auto;
     z-index: 120;
+    width: auto;
+    min-width: 0;
     max-width: min(360px, calc(100% - 48px));
     padding: 14px 18px;
     border: 1px solid rgba(184, 139, 45, 0.20);
@@ -730,6 +704,8 @@
         right: 12px;
         bottom: 96px;
         left: 12px;
+        width: auto;
+        min-width: 0;
         max-width: none;
         text-align: center;
     }
