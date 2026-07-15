@@ -62,6 +62,40 @@
     >
     <meta name="twitter:image:alt" content="{% block twitter_image_alt %}Hikayem Takı{% endblock %}">
 
+    <!-- Structured Data: Organization and WebSite -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://hikayemtaki.com/#organization",
+                "name": "Hikayem Takı",
+                "url": "https://hikayemtaki.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://hikayemtaki.com/static/img/logo/hikayem-logo.webp"
+                },
+                "sameAs": [
+                    "https://www.instagram.com/hikayemtaki/",
+                    "https://www.shopier.com/hikayemtaki"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://hikayemtaki.com/#website",
+                "url": "https://hikayemtaki.com/",
+                "name": "Hikayem Takı",
+                "description": "Zarif ve modern çelik takı koleksiyonları. Her takının bir hikâyesi var.",
+                "inLanguage": "tr-TR",
+                "publisher": {
+                    "@id": "https://hikayemtaki.com/#organization"
+                }
+            }
+        ]
+    }
+    </script>
+
     {% block extra_head %}{% endblock %}
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
