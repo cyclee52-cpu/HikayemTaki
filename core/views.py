@@ -1,4 +1,5 @@
 from django.db.models import Q
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
 
@@ -23,6 +24,22 @@ def get_category_url(*keywords):
         return reverse("products:list")
 
     return f"{reverse('products:list')}?category={category.slug}"
+
+
+
+def robots_txt(request):
+    lines = [
+        "User-agent: *",
+        "Allow: /",
+        "Disallow: /admin/",
+        "",
+        "Sitemap: https://hikayemtaki.com/sitemap.xml",
+    ]
+
+    return HttpResponse(
+        "\n".join(lines),
+        content_type="text/plain; charset=utf-8",
+    )
 
 
 def home(request):
