@@ -31,8 +31,17 @@
     </div>
 
     <div class="hero-v3-media">
-        <img src="{% static 'images/hero-product.png' %}" alt="Hikayem Takı Yeni Koleksiyon">
-    </div>
+    <picture>
+        <source
+            srcset="{% static 'images/hero-product.webp' %}"
+            type="image/webp"
+        >
+        <img
+            src="{% static 'images/hero-product.png' %}"
+            alt="Hikayem Takı Yeni Koleksiyon"
+        >
+    </picture>
+</div>
 </section>
 
 <section class="feature-strip">
