@@ -14,4 +14,4 @@ Yerel doğrulama:
 python3 blog_automation/build_blog.py /tmp/hikayem-blog-test
 ```
 
-Veridyen yayınında `BLOG_PUBLISH_DIR` cPanel'in `blog.hikayemtaki.com` belge köküyle aynı olmalıdır. Betik mevcut yayını önce `previous-*` klasörüne taşır; yeni üretim başarısız olursa önceki yayını geri getirir.
+Veridyen yayınında `BLOG_PUBLISH_DIR` cPanel'in `blog.hikayemtaki.com` belge köküyle aynı olmalıdır. Betik varsayılan olarak production sanal ortamındaki `/home/hikayemt/virtualenv/hikayemtaki/3.12/bin/python` yorumlayıcısını kullanır; gerekirse `BLOG_PYTHON` ile değiştirilebilir. Betik mevcut yayını önce `previous-*` klasörüne taşır; yeni üretim başarısız olursa önceki yayını geri getirir.
