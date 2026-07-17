@@ -123,6 +123,13 @@ def build_article(article: dict, all_articles: list[dict]) -> str:
 def build(output: Path) -> None:
     articles = json.loads((CONTENT / "articles.json").read_text(encoding="utf-8"))
     images = json.loads((CONTENT / "images.json").read_text(encoding="utf-8"))
+    image_dir = CONTENT / "images"
+    if image_dir.exists():
+        for encoded_image in image_dir.glob("*.webp.b64"):
+            images[encoded_image.name.removesuffix(".b64")] = encoded_image.read_text(encoding="ascii").strip()
+    missing_images = sorted({item["image"] for item in articles if item["image"] not in images})
+    if missing_images:
+        raise RuntimeError(f"Eksik blog görselleri: {', '.join(missing_images)}")
     if output.exists():
         shutil.rmtree(output)
     (output / "assets").mkdir(parents=True)
