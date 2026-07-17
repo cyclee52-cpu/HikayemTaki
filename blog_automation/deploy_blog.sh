@@ -4,12 +4,14 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TARGET="${BLOG_PUBLISH_DIR:-/home/hikayemt/public_html/blog}"
 RELEASES="${BLOG_RELEASE_DIR:-/home/hikayemt/blog-releases}"
+PYTHON="${BLOG_PYTHON:-/home/hikayemt/virtualenv/hikayemtaki/3.12/bin/python}"
 STAMP="$(date +%Y%m%d-%H%M%S)"
 NEW_RELEASE="$RELEASES/$STAMP"
 BACKUP="$RELEASES/previous-$STAMP"
 
 mkdir -p "$RELEASES"
-python3 "$ROOT/build_blog.py" "$NEW_RELEASE"
+test -x "$PYTHON"
+"$PYTHON" "$ROOT/build_blog.py" "$NEW_RELEASE"
 
 test -f "$NEW_RELEASE/index.html"
 test -f "$NEW_RELEASE/sitemap.xml"
