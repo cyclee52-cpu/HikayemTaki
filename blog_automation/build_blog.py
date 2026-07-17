@@ -9,6 +9,7 @@ import json
 import shutil
 import sys
 from datetime import datetime, timezone
+from email.utils import format_datetime
 from pathlib import Path
 from urllib.parse import quote
 
@@ -17,6 +18,8 @@ ROOT = Path(__file__).resolve().parent
 CONTENT = ROOT / "content"
 ASSETS = ROOT / "assets"
 SITE_URL = "https://blog.hikayemtaki.com"
+MAIN_SITE_URL = "https://hikayemtaki.com"
+LOGO_URL = f"{MAIN_SITE_URL}/static/img/logo/hikayem-logo.webp"
 
 
 def esc(value: object) -> str:
@@ -56,8 +59,11 @@ def page_shell(title: str, description: str, canonical: str, body: str, image: s
 <html lang="tr"><head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{esc(title)}</title><meta name="description" content="{esc(description)}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="{esc(canonical)}"><link rel="stylesheet" href="/assets/style.css">
-  {article_meta}<meta property="og:site_name" content="Hikayem Takı Blog">
+  <link rel="icon" href="{MAIN_SITE_URL}/static/icons/favicon.ico" sizes="any">
+  <link rel="alternate" type="application/rss+xml" title="Hikayem Takı Blog" href="{SITE_URL}/feed.xml">
+  {article_meta}<meta property="og:locale" content="tr_TR"><meta property="og:site_name" content="Hikayem Takı Blog">
   <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(description)}">
   <meta property="og:url" content="{esc(canonical)}"><meta property="og:image" content="{esc(image_url)}">
   <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{esc(title)}">
@@ -81,6 +87,44 @@ def build_home(articles: list[dict]) -> str:
     cards = "".join(card(item, i + 1) for i, item in enumerate(articles))
     categories = ["Tümü"] + list(dict.fromkeys(item["category"] for item in articles))
     buttons = "".join(f'<button class="category-button{" active" if i == 0 else ""}" data-category="{esc(cat)}">{esc(cat)}</button>' for i, cat in enumerate(categories))
+    home_schema = json.dumps({
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": f"{MAIN_SITE_URL}/#organization",
+                "name": "Hikayem Takı",
+                "url": f"{MAIN_SITE_URL}/",
+                "logo": {"@type": "ImageObject", "url": LOGO_URL},
+                "sameAs": ["https://www.instagram.com/hikayemtaki/"],
+            },
+            {
+                "@type": "WebSite",
+                "@id": f"{SITE_URL}/#website",
+                "url": f"{SITE_URL}/",
+                "name": "Hikayem Takı Blog",
+                "inLanguage": "tr-TR",
+                "publisher": {"@id": f"{MAIN_SITE_URL}/#organization"},
+            },
+            {
+                "@type": "Blog",
+                "@id": f"{SITE_URL}/#blog",
+                "url": f"{SITE_URL}/",
+                "name": "Hikayem Takı Blog",
+                "description": "Takı bakımı, stil, kombin ve anlamlı hediye seçimleri için editoryal rehberler.",
+                "inLanguage": "tr-TR",
+                "publisher": {"@id": f"{MAIN_SITE_URL}/#organization"},
+                "blogPost": [{"@id": f"{SITE_URL}/yazi/{item['slug']}/#article"} for item in articles],
+            },
+            {
+                "@type": "ItemList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": index, "url": f"{SITE_URL}/yazi/{item['slug']}/", "name": item["title"]}
+                    for index, item in enumerate(articles, 1)
+                ],
+            },
+        ],
+    }, ensure_ascii=False).replace("</", "<\\/")
     body = f"""{header()}
     <main id="icerik">
       <section class="hero"><div class="hero-image-wrap"><img class="hero-image" src="/images/editorial-hero.webp" alt="İpek üzerinde zarif takılar"></div>
@@ -92,7 +136,7 @@ def build_home(articles: list[dict]) -> str:
         <label class="search-box"><span>⌕</span><span class="sr-only">Yazılarda ara</span><input id="search" type="search" placeholder="Bir konu ara…"></label></div>
         <div class="category-tabs">{buttons}</div><div class="article-grid" id="article-grid">{cards}</div><p class="empty-state" id="empty-state" hidden>Aramanızla eşleşen yazı bulunamadı.</p></section>
       <section class="newsletter"><div><span class="section-kicker section-kicker--light">Hikâyeye katılın</span><h2>Yeni notları kaçırmayın.</h2></div><div><p>Yeni yazılar, stil fikirleri ve koleksiyon haberleri için Instagram’da bize katılın.</p><a class="newsletter-instagram" href="https://www.instagram.com/hikayemtaki">@hikayemtaki →</a></div></section>
-    </main>{footer()}<script src="/assets/app.js" defer></script>"""
+    </main>{footer()}<script type="application/ld+json">{home_schema}</script><script src="/assets/app.js" defer></script>"""
     return page_shell("Hikayem Takı Blog | Takı Bakımı, Stil ve Hediye Rehberi", "Takı bakımı, stil, kombin ve anlamlı hediye seçimleri için Hikayem Takı'nın editoryal rehberleri.", f"{SITE_URL}/", body)
 
 
@@ -107,7 +151,39 @@ def build_article(article: dict, all_articles: list[dict]) -> str:
         related += [item for item in all_articles if item["slug"] != article["slug"] and item not in related][:2-len(related)]
     related_html = "".join(card(item, i + 1) for i, item in enumerate(related))
     canonical = f"{SITE_URL}/yazi/{article['slug']}/"
-    schema = json.dumps({"@context": "https://schema.org", "@type": "BlogPosting", "headline": article["title"], "description": article["excerpt"], "datePublished": article["date_iso"], "dateModified": article["date_iso"], "inLanguage": "tr-TR", "image": f"{SITE_URL}/images/{article['image']}", "mainEntityOfPage": canonical, "publisher": {"@type": "Organization", "name": "Hikayem Takı"}}, ensure_ascii=False).replace("</", "<\\/")
+    schema = json.dumps({
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "@id": f"{canonical}#article",
+                "headline": article["title"],
+                "description": article["excerpt"],
+                "datePublished": article["date_iso"],
+                "dateModified": article["date_iso"],
+                "inLanguage": "tr-TR",
+                "image": {"@type": "ImageObject", "url": f"{SITE_URL}/images/{article['image']}"},
+                "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
+                "author": {"@type": "Organization", "name": "Hikayem Takı Editör Ekibi", "url": f"{SITE_URL}/"},
+                "publisher": {
+                    "@type": "Organization",
+                    "@id": f"{MAIN_SITE_URL}/#organization",
+                    "name": "Hikayem Takı",
+                    "url": f"{MAIN_SITE_URL}/",
+                    "logo": {"@type": "ImageObject", "url": LOGO_URL},
+                },
+                "isPartOf": {"@id": f"{SITE_URL}/#blog"},
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": f"{canonical}#breadcrumb",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Blog", "item": f"{SITE_URL}/"},
+                    {"@type": "ListItem", "position": 2, "name": article["title"], "item": canonical},
+                ],
+            },
+        ],
+    }, ensure_ascii=False).replace("</", "<\\/")
     share = quote(article["title"] + " " + canonical)
     body = f"""{header(True)}<main id="icerik" class="article-page">
       <section class="article-hero"><div class="article-hero-copy"><a class="back-link" href="/">← Tüm yazılar</a><div class="article-meta article-meta--large"><span>{esc(article['category'])}</span><span>{esc(article['readTime'])}</span></div>
@@ -143,9 +219,29 @@ def build(output: Path) -> None:
         article_dir = output / "yazi" / article["slug"]
         article_dir.mkdir(parents=True)
         (article_dir / "index.html").write_text(build_article(article, articles), encoding="utf-8")
-    urls = [f"{SITE_URL}/"] + [f"{SITE_URL}/yazi/{item['slug']}/" for item in articles]
-    sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(f"  <url><loc>{esc(url)}</loc></url>" for url in urls) + "\n</urlset>\n"
+    latest_date = max(item["date_iso"] for item in articles)
+    sitemap_entries = [f"  <url><loc>{SITE_URL}/</loc><lastmod>{latest_date}</lastmod></url>"]
+    sitemap_entries.extend(
+        f"  <url><loc>{SITE_URL}/yazi/{esc(item['slug'])}/</loc><lastmod>{esc(item['date_iso'])}</lastmod></url>"
+        for item in articles
+    )
+    sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(sitemap_entries) + "\n</urlset>\n"
     (output / "sitemap.xml").write_text(sitemap, encoding="utf-8")
+    rss_items = []
+    for item in articles:
+        published = datetime.fromisoformat(item["date_iso"]).replace(tzinfo=timezone.utc)
+        url = f"{SITE_URL}/yazi/{item['slug']}/"
+        rss_items.append(
+            f"<item><title>{esc(item['title'])}</title><link>{url}</link><guid isPermaLink=\"true\">{url}</guid>"
+            f"<description>{esc(item['excerpt'])}</description><pubDate>{format_datetime(published)}</pubDate></item>"
+        )
+    feed = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0"><channel><title>Hikayem Takı Blog</title>'
+        f"<link>{SITE_URL}/</link><description>Takı bakımı, stil ve hediye rehberleri.</description>"
+        '<language>tr-TR</language>' + "".join(rss_items) + "</channel></rss>\n"
+    )
+    (output / "feed.xml").write_text(feed, encoding="utf-8")
     (output / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
     (output / ".htaccess").write_text("Options -Indexes\nDirectoryIndex index.html\nRewriteEngine On\nRewriteCond %{REQUEST_FILENAME} !-f\nRewriteCond %{REQUEST_FILENAME} !-d\nRewriteCond %{REQUEST_FILENAME}/index.html -f\nRewriteRule ^(.+?)/?$ $1/ [R=301,L]\n", encoding="utf-8")
     stamp = datetime.now(timezone.utc).isoformat()
