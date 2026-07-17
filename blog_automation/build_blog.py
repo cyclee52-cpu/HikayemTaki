@@ -29,7 +29,7 @@ def header(compact: bool = False) -> str:
     <header class="site-header{cls}">
       <div class="header-inner">
         <a class="brand" href="/" aria-label="Hikayem Takı Blog ana sayfa">
-          <span class="brand-mark">H</span>
+          <img class="brand-logo" src="https://hikayemtaki.com/static/img/logo/hikayem-logo.png" alt="Hikayem Takı">
           <span class="brand-copy"><strong>HİKAYEM TAKI</strong><small>HER TAKININ BİR HİKÂYESİ VAR</small></span>
         </a>
         <nav class="desktop-nav" aria-label="Ana menü">
