@@ -6,6 +6,7 @@ Bu klasör `blog-content` dalında tutulur ve ana Django uygulamasından bağım
 - `content/images.json`: WebP görsellerin Base64 karşılıkları
 - `build_blog.py`: Statik blog üreticisi
 - `deploy_blog.sh`: Doğrulama, yedekleme ve geri dönüşlü Veridyen yayını
+- `update_and_deploy.sh`: `blog-content` dalını hızlı ileri alıp yayını başlatır
 - `dist/`: Yerel üretim çıktısı; Git'e eklenmez
 
 Yerel doğrulama:
