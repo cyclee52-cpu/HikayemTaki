@@ -43,7 +43,7 @@ def header(compact: bool = False) -> str:
 def footer() -> str:
     return """
     <footer class="site-footer">
-      <div class="footer-brand"><span class="brand-mark">H</span><div><strong>HİKAYEM TAKI</strong><small>Her takının bir hikâyesi var.</small></div></div>
+      <div class="footer-brand"><img class="footer-logo" src="https://hikayemtaki.com/static/img/logo/hikayem-logo.png" alt="Hikayem Takı"><div><strong>HİKAYEM TAKI</strong><small>Her takının bir hikâyesi var.</small></div></div>
       <div class="footer-links"><a href="/">Blog</a><a href="https://hikayemtaki.com">Mağaza</a><a href="https://www.instagram.com/hikayemtaki">Instagram</a></div>
       <p>© 2026 Hikayem Takı. Tüm hakları saklıdır.</p>
     </footer>"""
