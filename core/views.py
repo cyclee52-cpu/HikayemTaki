@@ -13,33 +13,42 @@ PRODUCT_ROTATION_INTERVAL = 20000
 
 CORPORATE_PAGES = {
     "story": {
-        "eyebrow": "Hikayem Takı",
-        "title": "Her takının bir hikâyesi var.",
-        "description": "Hikayem Takı'nın zarif, modern ve günlük kullanıma uygun parçaları seçme yaklaşımını keşfedin.",
-        "lead": "Hikayem Takı, günlük hayatın küçük anlarına eşlik eden zarif parçaları ulaşılabilir bir seçkiyle buluşturmak için kuruldu.",
+        "eyebrow": "Nihan & Eda'nın Hikâyesi",
+        "title": "Bir arkadaşlıktan doğan ortak hikâye.",
+        "description": "Nihan ve Eda'nın aynı iş yerinde başlayan arkadaşlıklarının, ortak takı tutkusu ve Bir Hikayem deneyimiyle Hikayem Takı'ya dönüşen öyküsü.",
+        "lead": "Aynı iş yerinde başlayan bir arkadaşlık, yaklaşık bir yıl içinde abla-kardeş sıcaklığında bir bağa; ortak bir tutku ise birlikte kurulan bir hayale dönüştü.",
         "sections": [
             {
-                "heading": "Bizim hikâyemiz",
+                "heading": "Aynı yerde başlayan yakınlık",
                 "paragraphs": [
-                    "Bir takının yalnızca görünümüyle değil, eşlik ettiği anlarla anlam kazandığına inanıyoruz. Bazen bir kutlamanın hatırası, bazen günlük stilin küçük imzası, bazen de sevilen birine söylenen sessiz bir cümle olur.",
-                    "Bu nedenle koleksiyonumuzu oluştururken modern çizgiyi, günlük kullanım kolaylığını ve farklı stillerle eşleşebilen zarif detayları bir arada düşünürüz.",
+                    "Nihan ve Eda'nın yolu aynı iş yerinde kesişti. İş arkadaşlığıyla başlayan tanışıklıkları, birbirlerini daha yakından tanıdıkça kısa sürede güçlü bir dostluğa dönüştü.",
+                    "Yaklaşık bir yıllık arkadaşlıkları, zamanla birbirini anlayan, destekleyen ve tamamlayan bir abla-kardeş bağına ulaştı. Hikayem Takı'nın temelinde de tam olarak bu güven ve birlikte büyüme duygusu var.",
                 ],
             },
             {
-                "heading": "Seçim yaklaşımımız",
+                "heading": "“Birlikte bir iş kurmalıyız”",
                 "paragraphs": [
-                    "Her parçayı Hikayem Takı üretmiyor; ürünleri görünüm, kullanım alanı ve koleksiyon bütünlüğü açısından özenle seçiyoruz. Ürün sayfalarında mevcut bilgileri açık ve anlaşılır biçimde sunmaya önem veriyoruz."
+                    "İkisini buluşturan yalnızca dostlukları değildi. Takılara duydukları ortak ilgi, zarif parçaları keşfetme heyecanı ve bu şıklığı başkalarıyla paylaşma isteği, birlikte kurabilecekleri işin yönünü gösterdi.",
+                    "Bir gün dile gelen ‘Birlikte bir iş kurmalıyız’ düşüncesi, ortak zevklerinin ve birbirlerine duydukları güvenin üzerinde büyüdü. Böylece bir fikir, adım adım gerçeğe; iki arkadaşın ortak hikâyesi ise Hikayem Takı'ya dönüştü.",
+                ],
+            },
+            {
+                "heading": "İsmimizin taşıdığı hikâye",
+                "paragraphs": [
+                    "Hikayem Takı ismi, Nihan'ın daha önce yürüttüğü Bir Hikayem organizasyon işinden izler taşıyor. Bir Hikayem, insanların evlilik yolculuğuna hazırlanırken yazdıkları ilk hikâyelere eşlik ediyordu.",
+                    "Bugün bu anlam, takılarla yaşamaya devam ediyor. Çünkü bazen bir hikâye bir buluşmayla, bazen yeni bir başlangıçla, bazen de yıllarca saklanacak küçük bir takıyla başlar. Hikayem Takı, insanların kendi hikâyelerinin en başındaki o değerli anlara ulaşmak ve onlara eşlik etmek için bu ismi taşıyor.",
+                ],
+            },
+            {
+                "heading": "Şimdi sıra sizin hikâyenizde",
+                "paragraphs": [
+                    "Nihan ve Eda için Hikayem Takı yalnızca bir iş değil; dostluklarının, ortak tutkularının ve birlikte cesaret etmelerinin somut hâli. Koleksiyondaki her parça da bir stile eşlik etmenin ötesinde, onu seçen kişinin anılarında kendine küçük bir yer bulsun diye özenle seçiliyor.",
+                    "Bizim hikâyemiz iki arkadaşla başladı. Bundan sonrası, takılarımızı kendi anlarının parçası yapan herkesle birlikte yazılıyor.",
                 ],
                 "bullets": [
-                    "Günlük stile kolayca eşlik eden tasarımlar",
-                    "Zarif ve modern bir koleksiyon dili",
-                    "Özenli paketleme ve ulaşılabilir iletişim",
-                ],
-            },
-            {
-                "heading": "Senin takın, senin hikâyen",
-                "paragraphs": [
-                    "Tarzın kurallardan çok hislerle şekillenir. Hikayem Takı olarak amacımız, kendinizi daha çok siz gibi hissettiren parçaları keşfetmenize eşlik etmektir."
+                    "Dostluktan doğan samimi bir marka",
+                    "Ortak takı tutkusuyla oluşturulan zarif bir seçki",
+                    "Her müşterinin kendi hikâyesine eşlik etme arzusu",
                 ],
             },
         ],
