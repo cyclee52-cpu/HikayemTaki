@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | Hikayem Takı{% endblock %}
+{% block description %}{{ page.description }}{% endblock %}
+{% block canonical_url %}https://hikayemtaki.com{{ request.path }}{% endblock %}
+{% block og_title %}{{ page.title }} | Hikayem Takı{% endblock %}
+{% block og_description %}{{ page.description }}{% endblock %}
+{% block og_url %}https://hikayemtaki.com{{ request.path }}{% endblock %}
+{% block twitter_title %}{{ page.title }} | Hikayem Takı{% endblock %}
+{% block twitter_description %}{{ page.description }}{% endblock %}
+
+{% block content %}
+<section class="corporate-page">
+    <div class="container">
+        <div class="corporate-hero">
+            <nav class="corporate-breadcrumb" aria-label="Sayfa yolu">
+                <a href="{% url 'home' %}">Ana Sayfa</a>
+                <span aria-hidden="true">/</span>
+                <span>{{ page.title }}</span>
+            </nav>
+            <span class="corporate-eyebrow">{{ page.eyebrow }}</span>
+            <h1>{{ page.title }}</h1>
+            <p>{{ page.lead }}</p>
+        </div>
+
+        <div class="corporate-content">
+            {% for section in page.sections %}
+                <article class="corporate-section">
+                    <h2>{{ section.heading }}</h2>
+                    {% for paragraph in section.paragraphs %}
+                        <p>{{ paragraph }}</p>
+                    {% endfor %}
+                    {% if section.bullets %}
+                        <ul>
+                            {% for bullet in section.bullets %}
+                                <li>{{ bullet }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </article>
+            {% endfor %}
+        </div>
+
+        {% if page.note %}
+            <p class="corporate-note">{{ page.note }}</p>
+        {% endif %}
+
+        {% if page.actions %}
+            <div class="corporate-links">
+                {% for action in page.actions %}
+                    <a href="{{ action.url }}" target="_blank" rel="noopener noreferrer">
+                        {{ action.label }}
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
