@@ -27,6 +27,12 @@ urlpatterns = [
     ),
 
     path("", views.home, name="home"),
+    path("hikayemiz/", views.corporate_page, {"page_key": "story"}, name="story"),
+    path("kargo-ve-teslimat/", views.corporate_page, {"page_key": "shipping"}, name="shipping"),
+    path("iade-ve-degisim/", views.corporate_page, {"page_key": "returns"}, name="returns"),
+    path("gizlilik-politikasi/", views.corporate_page, {"page_key": "privacy"}, name="privacy"),
+    path("sikca-sorulan-sorular/", views.corporate_page, {"page_key": "faq"}, name="faq"),
+    path("iletisim/", views.corporate_page, {"page_key": "contact"}, name="contact"),
 
     path("products/", include("products.urls")),
 ]
